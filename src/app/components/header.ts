@@ -39,8 +39,8 @@ import { RouterLink } from '@angular/router';
           </div>
           <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
             <li><a>چت اختصاصی</a></li>
-            <li><a>سرور ابری</a></li>
             <li><a>سرور اختصاصی</a></li>
+            <li><a>سرویس های ابری</a></li>
           </ul>
         </div>
 
