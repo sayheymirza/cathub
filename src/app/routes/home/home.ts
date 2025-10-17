@@ -1,15 +1,19 @@
 import { Component, inject } from '@angular/core';
-import { HomeHero } from "../components/home-hero";
-import { Seo } from '../services/seo';
+import { Seo } from '../../services/seo';
+import { HomeBadges } from "./home-badges";
+import { HomeFeatures } from './home-features';
+import { HomeHero } from "./home-hero";
 
 @Component({
   selector: 'app-home',
-  imports: [HomeHero],
+  imports: [HomeHero, HomeBadges, HomeFeatures],
   template: `
     <app-home-hero />
+    <app-home-badges class="px-6 md:px-10" />
+    <app-home-features />
   `,
   host: {
-    class: 'flex flex-col container mx-auto p-4'
+    class: 'flex flex-col gap-4 md:gap-10 container mx-auto p-4'
   }
 })
 export class Home {

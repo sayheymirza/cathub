@@ -19,12 +19,12 @@ import { Component } from '@angular/core';
     </div>
     
     <div class="flex flex-nowrap items-end justify-center gap-4 -mb-20 md:mb-0 md:relative md:-bottom-20">
-      <img src="/images/demo-1.png" alt="First Demo" class="w-fit h-[300px] md:h-[480px] object-center object-contain lg:static md:absolute left-0 z-1" />
-      <img src="/images/demo-2.png" alt="Second Demo" class="w-fit h-[300px] md:h-[480px] object-center object-contain lg:static md:absolute left-10 top-0" />
+      <img src="/images/demo-1.png" alt="First Demo" class="w-fit h-[300px] md:h-[480px] object-center object-contain lg:static md:absolute left-0 z-1 shadow-xl rounded-[45px]" />
+      <img src="/images/demo-2.png" alt="Second Demo" class="w-fit h-[300px] md:h-[480px] object-center object-contain lg:static md:absolute left-10 top-0 shadow-xl rounded-[45px]" />
     </div>
   `,
   host: {
-    class: 'grid md:grid-cols-2 rounded-3xl bg-gradient-to-b from-primary to-secondary text-white mt-16 overflow-hidden md:[overflow:unset]'
+    class: 'grid md:grid-cols-2 rounded-3xl bg-gradient-to-b from-primary to-secondary text-white mb-16 overflow-hidden md:[overflow:unset]'
   }
 })
 export class HomeHero {

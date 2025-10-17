@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   template: `
     <header>
       <nav class="bg-black text-white h-10">
-        <div class="flex flex-nowrap items-center gap-4 container mx-auto h-full">
+        <div class="flex flex-nowrap items-center gap-4 container mx-auto px-4 h-full">
           <p class="text-sm">جهت خرید و ثبت سرویس با شماره‌های درج شده تماس حاصل فرمایید.</p>
           <div class="flex-1"></div>
           
@@ -24,7 +24,7 @@ import { RouterLink } from '@angular/router';
         </div>
       </nav>
 
-      <nav class="flex flex-nowrap items-center h-24 container mx-auto">
+      <nav class="flex flex-nowrap items-center h-24 px-4 container mx-auto">
         <a routerLink="/" class="flex flex-nowrap items-center gap-4">
           <img ngSrc="/images/logo.png" alt="Cathub Logo" width="56" height="56" />
           <strong class="text-xl">کت هاب</strong>
