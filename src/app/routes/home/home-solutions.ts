@@ -1,0 +1,158 @@
+import { Component, computed, signal } from '@angular/core';
+
+@Component({
+  selector: 'app-home-solutions',
+  imports: [],
+  template: `
+  <div class="flex flex-col gap-4">
+    <h2 class="font-bold text-2xl">راه‌حل‌هایی برای ساخت ارتباط سریع، امن و مقیاس‌پذیر</h2>
+    <p class="text-base-content/80 leading-7">
+      متناسب با نوع کسب‌وکار، مقیاس تیم و نیاز کاربران، کت‌هاب راه‌حل‌های اختصاصی برای طراحی و پیاده‌سازی سیستم‌های چت ارائه می‌دهد.
+    </p>
+  </div>
+
+    <div class="tabs tabs-lg tabs-border mt-6">
+      @for (item of items; track $index) {
+        <label class="tab transition-all gap-4" [class.text-primary]="index() == $index">
+          <input type="radio" name="solutions" (change)="index.set($index)" [checked]="index() == $index"  />
+          <i class="material-icons-round">{{item.icon}}</i>
+          <span>{{item.title}}</span>
+        </label>
+
+        <div class="tab-content py-8">
+          <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-10">
+            @for (item of item.items; track $index) {
+              <div class="flex flex-col gap-4 bg-base-200 rounded-xl p-6 -shadow-lg group">
+                <div class="flex flex-nowrap items-center gap-4">
+                  @if(item.image) {
+                    <img src="{{item.image}}" alt="{{item.title}}" width="44px" class=" transition-all group-hover:scale-125 group-hover:rotate-6" />
+                  }
+                  <h4 class="font-bold">{{item.title}}</h4>
+                </div>
+                <p class="text-sm leading-7 text-base-content/80">{{item.description}}</p>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  `,
+  host: {
+    class: 'flex flex-col gap-2 p-4'
+  }
+})
+export class HomeSolutions {
+  public index = signal(0);
+
+  public subitems = computed(() => {
+    return this.items[this.index()].items;
+  });
+
+  public items: any[] = [
+    {
+      title: "سازمان‌ها",
+      icon: 'apartment',
+      items: [
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-messaging-96.png',
+          title: "چت سازمانی داخلی",
+          description: "راه‌حلی برای برقراری ارتباط سریع بین تیم‌ها با امنیت دادهٔ درون‌سازمانی."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-unit-96.png',
+          title: "کنترل دسترسی و مدیریت نقش‌ها",
+          description: "تعریف سطح دسترسی برای مدیران، کارمندان و بخش‌های مختلف سازمان."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-copy-96.png',
+          title: "گزارش‌گیری و مانیتورینگ ارتباطات",
+          description: "امکان پایش فعالیت‌ها، کیفیت پاسخ‌گویی و تحلیل تعامل داخلی."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-3d-pointer-96.png',
+          title: "ادغام با سیستم‌های سازمانی (CRM، ERP)",
+          description: "اتصال مستقیم سیستم چت کت‌هاب به سامانه‌های مدیریتی و منابع انسانی."
+        }
+      ]
+    },
+    {
+      title: "استارتاپ‌ها",
+      icon: 'rocket_launch',
+      items: [
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-brainstorm-skill-96.png',
+          title: "ساخت سریع اپلیکیشن چت بدون تیم فنی",
+          description: "در چند روز پیام‌رسان اختصاصی خود را تحویل بگیرید."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-solid-paint-96.png',
+          title: "طراحی سفارشی متناسب با برند",
+          description: "رنگ، لوگو و ظاهر اپ به‌صورت کامل مطابق هویت استارتاپ شما تنظیم می‌شود."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-vertical-timeline-96.png',
+          title: "زیرساخت مقیاس‌پذیر از روز اول",
+          description: "افزایش کاربران بدون نگرانی از پرفورمنس یا هزینه‌های سرور."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-web-96.png',
+          title: "مدیریت ساده از داشبورد مرکزی",
+          description: "کاربران، گفتگوها و تنظیمات را از یک پنل واحد کنترل کنید."
+        }
+      ]
+    },
+    {
+      title: "تیم‌های پشتیبانی",
+      icon: 'support_agent',
+      items: [
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-messaging-96.png',
+          title: "چت هم‌زمان با چند کاربر",
+          description: "پشتیبان‌ها می‌توانند به چند گفت‌وگو به‌صورت هم‌زمان پاسخ دهند."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-guarantee-96.png',
+          title: "سیستم برچسب‌گذاری و تیکت",
+          description: "گفتگوها قابل دسته‌بندی و پیگیری تا زمان حل مشکل هستند."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-vertical-timeline-96.png',
+          title: "آمار و تحلیل عملکرد تیم",
+          description: "نمایش داده‌های پاسخ‌گویی، زمان انتظار و سطح رضایت کاربران."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-3d-pointer-96.png',
+          title: "اتصال به CRM و سیستم‌های مدیریت مشتری",
+          description: "انتقال خودکار داده‌ها و تاریخچه گفتگوها به پروفایل مشتریان."
+        }
+      ]
+    },
+    {
+      title: "شبکه‌های اجتماعی",
+      icon: 'groups',
+      items: [
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-messaging-96.png',
+          title: "ایجاد گروه و کانال اختصاصی",
+          description: "ساخت گروه‌های گفت‌وگو یا کانال‌های اطلاع‌رسانی با کنترل مدیر."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-picture-96.png',
+          title: "پروفایل کاربری و پیام خصوصی",
+          description: "هر کاربر دارای صفحه شخصی و امکان گفت‌وگوی مستقیم است."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-solid-paint-96.png',
+          title: "طراحی اجتماعی متناسب با برند",
+          description: "رابط کاربری چت مطابق تم و گرافیک شبکهٔ شما ساخته می‌شود."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-commercial-96.png',
+          title: "سیستم نوتیفیکیشن بلادرنگ",
+          description: "اطلاع‌رسانی سریع پیام‌ها و فعالیت‌ها برای افزایش تعامل کاربران."
+        }
+      ]
+    }
+  ];
+
+}

@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <div class="flex flex-col items-center text-center md:items-start md:text-start justify-center gap-2 p-10 md:pl-10 md:p-14 xl:p-28">
-      <h1 class="text-2xl xl:text-3xl font-bold">کت‌هاب ارائه‌دهنده راهکارهای تخصصی در حوزه ارتباطات بلادرنگ</h1>
+      <h1 class="text-2xl xl:text-3xl font-bold leading-12">کت‌هاب ارائه‌دهنده راهکارهای تخصصی در حوزه ارتباطات بلادرنگ</h1>
       <p class="text-white/85 leading-8 lg:text-md xl:text-lg">ما برای شرکت‌ها و سازمان‌ها، اپلیکیشن‌های چت امن و مقیاس‌پذیر طراحی و تحویل می‌دهیم تا تعامل داخلی و ارتباط با مشتریان ساده‌تر و کارآمدتر شود.</p>
 
       <div class="flex flex-wrap justify-center md:justify-start gap-2 mt-8">
@@ -24,7 +24,7 @@ import { Component } from '@angular/core';
     </div>
   `,
   host: {
-    class: 'grid md:grid-cols-2 rounded-3xl bg-gradient-to-b from-primary to-secondary text-white mb-16 overflow-hidden md:[overflow:unset]'
+    class: 'grid md:grid-cols-2 md:rounded-3xl bg-gradient-to-b from-primary to-secondary text-white mb-16 overflow-hidden md:[overflow:unset]'
   }
 })
 export class HomeHero {

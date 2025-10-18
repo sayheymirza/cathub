@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   imports: [NgOptimizedImage],
   template: `
     <section class="container mx-auto mb-4">
-      <div class="flex flex-nowrap items-center justify-between rounded-2xl bg-base-200 p-4 mx-4">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 rounded-2xl bg-base-200 p-4 mx-4">
         <h3 class="font-bold">عضو خبرنامه ما شوید</h3>
         
         <label class="input focus-within:input-primary">

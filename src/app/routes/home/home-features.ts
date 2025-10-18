@@ -5,7 +5,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   imports: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
-    <div class="rounded-2xl flex items-center justify-center md:aspect-square p-4 bg-gradient-to-t from-base-300 to-base-200 relative">
+    <div class="md:rounded-2xl flex items-center justify-center md:aspect-square p-4 bg-gradient-to-t from-base-300 to-base-200 relative">
         <swiper-container autoplay-delay="2500" slides-per-view="auto" space-between="10" mousewheel-force-to-axis="true" loop="true" class="w-[240px] h-[560px] z-0 relative">
           <swiper-slide class="flex items-center justify-center">
             <div class="w-full h-full rounded-[40px] bg-white overflow-hidden px-4 py-10">
@@ -32,24 +32,24 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
         <img src="/images/iphone.png" alt="IPhone Mockup" class="w-[280px] h-[560px] object-contain absolute z-1" />
     </div>
 
-    <div class="flex flex-col gap-1 py-4">
+    <div class="flex flex-col gap-4 p-4">
       <h2 class="font-bold text-2xl">راه‌حل ما، ساخت سریع اپلیکیشن چت با برند شما</h2>
 
       <p class="text-base-content/80 leading-7">
         با استفاده از پلتفرم کت‌هاب، می‌توانید در کمتر از یک هفته اپلیکیشن چت اختصاصی خود را با طراحی منحصربه‌فرد و امکانات پیشرفته بسازید. ما تمامی جنبه‌های فنی را مدیریت می‌کنیم تا شما بتوانید بر رشد کسب‌وکار خود تمرکز کنید.
       </p>
 
-      <ul>
+      <ul class="mt-4">
         @for (item of features; track $index) {
-        <li class="flex flex-nowrap items-center gap-4 py-4 pe-4 ps-2 cursor-pointer border-b border-b-base-content/20 last:border-transparent group">
-          <img src="{{item.image}}" alt="{{item.title}}" class="w-[56px]" />
+        <li class="flex flex-nowrap items-center gap-4 py-4 pe-4 ps-2 border-b border-b-base-content/20 last:border-transparent group">
+          <img src="{{item.image}}" alt="{{item.title}}" class="w-[56px] transition-all group-hover:scale-125 group-hover:rotate-6" />
 
           <div class="flex flex-col flex-1 gap-1">
             <h3 class="font-bold group-hover:text-primary">{{item.title}}</h3>
             <p class="text-sm text-base-content/80">{{item.subtitle}}</p>
           </div>
 
-          <i class="material-icons-round group-hover:text-primary">chevron_left</i>
+          <!-- <i class="material-icons-round group-hover:text-primary">chevron_left</i> -->
         </li>
         }
       </ul>
