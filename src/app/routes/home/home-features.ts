@@ -5,7 +5,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   imports: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
-    <div class="md:rounded-2xl flex items-center justify-center md:aspect-square p-4 bg-gradient-to-t from-base-300 to-base-200 relative">
+    <div class="sm:rounded-2xl flex items-center justify-center md:aspect-square p-4 bg-gradient-to-t from-base-300 to-base-200 relative">
         <swiper-container autoplay-delay="2500" slides-per-view="auto" space-between="10" mousewheel-force-to-axis="true" loop="true" class="w-[240px] h-[560px] z-0 relative">
           <swiper-slide class="flex items-center justify-center">
             <div class="w-full h-full rounded-[40px] bg-white overflow-hidden px-4 py-10">

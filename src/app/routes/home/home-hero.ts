@@ -25,7 +25,7 @@ import { RouterLink } from "@angular/router";
     </div>
   `,
   host: {
-    class: 'grid md:grid-cols-2 md:rounded-3xl bg-gradient-to-b from-primary to-secondary text-white mb-16 overflow-hidden md:[overflow:unset]'
+    class: 'grid md:grid-cols-2 sm:rounded-3xl bg-gradient-to-b from-primary to-secondary text-white mb-16 overflow-hidden md:[overflow:unset]'
   }
 })
 export class HomeHero {

@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-header',
   imports: [NgOptimizedImage, RouterLink],
   template: `
-    <header class="h-34">
+    <header class="h-24 md:h-34">
       <nav class="bg-black text-white h-10 hidden md:block">
         <div class="flex flex-nowrap items-center gap-4 container mx-auto px-4 h-full">
           <p class="text-sm">جهت خرید و ثبت سرویس با شماره‌های درج شده تماس حاصل فرمایید.</p>
@@ -32,7 +32,7 @@ import { RouterLink } from '@angular/router';
 
           <a routerLink="/" class="flex flex-col sm:flex-row items-center gap-1 sm:gap-4 mx-auto md:mx-0">
             <img ngSrc="/images/logo.png" alt="Cathub Logo" width="56" height="56" class="w-[32px] h-[32px] md:w-[56px] md:h-[56px] transition-all" />
-            <strong class="text-lg md:text-xl">کت هاب</strong>
+            <strong class="text-base sm:text-lg md:text-xl">کت هاب</strong>
           </a>
 
           <div class="hidden md:flex flex-nowrap items-center mx-auto">
@@ -79,7 +79,7 @@ import { RouterLink } from '@angular/router';
     </header>
   `,
   host: {
-    class: 'block sticky -top-10 z-10'
+    class: 'block sticky top-0 md:-top-10 z-10'
   },
 })
 export class Header {
