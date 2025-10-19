@@ -41,9 +41,10 @@ import { RouterLink } from '@angular/router';
               <i class="material-icons-round">arrow_drop_down</i>
             </div>
             <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-              <li><a>چت اختصاصی</a></li>
+              <li><a>ساخت اپلیکیشن چت</a></li>
+              <li><a>ساخت شبکه اجتماعی</a></li>
+              <li><a>چت سازمانی</a></li>
               <li><a>سرور اختصاصی</a></li>
-              <li><a>سرویس های ابری</a></li>
             </ul>
           </div>
 

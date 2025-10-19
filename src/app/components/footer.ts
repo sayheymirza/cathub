@@ -30,9 +30,10 @@ import { RouterLink } from '@angular/router';
         <div class="flex flex-col gap-2">
           <strong class="mb-4">خدمات ما</strong>
 
-          <a class="hover:underline">چت اختصاصی</a>
+          <a class="hover:underline">ساخت اپلیکیشن چت</a>
+          <a class="hover:underline">ساخت شبکه اجتماعی</a>
+          <a class="hover:underline">چت سازمانی</a>
           <a class="hover:underline">سرور اختصاصی</a>
-          <a class="hover:underline">سرویس های ابری</a>
         </div>
 
         <div class="flex flex-col gap-2">
