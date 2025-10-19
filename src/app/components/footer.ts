@@ -38,8 +38,8 @@ import { RouterLink } from '@angular/router';
         <div class="flex flex-col gap-2">
           <strong class="mb-4">ارتباط با مشتریان</strong>
 
-          <a class="hover:underline">مشاوره رایگان</a>
-          <a class="hover:underline">پورتال مشتریان</a>
+          <a routerLink="/consultation" class="hover:underline">درخواست مشاوره</a>
+          <a routerLink="/login" class="hover:underline">پورتال مشتریان</a>
           <a routerLink="/order" class="hover:underline">فرم ثبت سفارش سرویس</a>
         </div>
 

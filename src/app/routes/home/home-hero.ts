@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-home-hero',
-  imports: [],
+  imports: [RouterLink],
   template: `
     <div class="flex flex-col items-center text-center md:items-start md:text-start justify-center gap-2 p-10 md:pl-10 md:p-14 xl:p-28">
       <h1 class="text-2xl xl:text-3xl font-bold leading-12">کت‌هاب ارائه‌دهنده راهکارهای تخصصی در حوزه ارتباطات بلادرنگ</h1>
@@ -12,8 +13,8 @@ import { Component } from '@angular/core';
         <a class="btn btn-lg rounded-full text-primary">
           <span class="text-sm">مشاهده خدمات</span>
         </a>
-        <a class="btn btn-lg btn-outline rounded-full hover:text-primary">
-          <span class="text-sm">مشاوره رایگان</span>
+        <a routerLink="/consultation" class="btn btn-lg btn-outline rounded-full hover:text-primary">
+          <span class="text-sm">درخواست مشاوره</span>
         </a>
       </div>
     </div>

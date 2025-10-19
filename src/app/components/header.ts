@@ -62,8 +62,8 @@ import { RouterLink } from '@angular/router';
           </a>
         </div>
 
-        <a class="btn btn-outline border-primary rounded-full text-primary hidden md:flex">
-          مشاوره رایگان
+        <a routerLink="/consultation" class="btn btn-outline border-primary rounded-full text-primary hidden md:flex">
+          درخواست مشاوره
         </a>
 
         <div class="mx-1"></div>
