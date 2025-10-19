@@ -68,7 +68,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="mx-1"></div>
 
-        <a class="btn btn-primary rounded-full">
+        <a routerLink="/login" class="btn btn-primary rounded-full">
           پورتال مشتریان
         </a>
 
