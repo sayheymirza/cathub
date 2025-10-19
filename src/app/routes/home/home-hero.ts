@@ -9,10 +9,10 @@ import { Component } from '@angular/core';
       <p class="text-white/85 leading-8 lg:text-md xl:text-lg">ما برای شرکت‌ها و سازمان‌ها، اپلیکیشن‌های چت امن و مقیاس‌پذیر طراحی و تحویل می‌دهیم تا تعامل داخلی و ارتباط با مشتریان ساده‌تر و کارآمدتر شود.</p>
 
       <div class="flex flex-wrap justify-center md:justify-start gap-2 mt-8">
-        <a class="btn btn-lg text-primary">
+        <a class="btn btn-lg rounded-full text-primary">
           <span class="text-sm">مشاهده خدمات</span>
         </a>
-        <a class="btn btn-lg btn-outline hover:text-primary">
+        <a class="btn btn-lg btn-outline rounded-full hover:text-primary">
           <span class="text-sm">مشاوره رایگان</span>
         </a>
       </div>

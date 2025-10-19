@@ -1,9 +1,10 @@
 import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, RouterLink],
   template: `
     <section class="container mx-auto mb-4">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4 rounded-2xl bg-base-200 p-4 mx-4">
@@ -39,7 +40,7 @@ import { Component } from '@angular/core';
 
           <a class="hover:underline">مشاوره رایگان</a>
           <a class="hover:underline">پورتال مشتریان</a>
-          <a class="hover:underline">فرم ثبت سفارش سرویس</a>
+          <a routerLink="/order" class="hover:underline">فرم ثبت سفارش سرویس</a>
         </div>
 
         <div class="flex flex-col gap-2">

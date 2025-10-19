@@ -53,7 +53,7 @@ import { RouterLink } from '@angular/router';
               <i class="material-icons-round">arrow_drop_down</i>
             </div>
             <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-              <li><a>فرم ثبت سفارش سرویس</a></li>
+              <li><a routerLink="/order">فرم ثبت سفارش سرویس</a></li>
             </ul>
           </div>
 
@@ -62,13 +62,13 @@ import { RouterLink } from '@angular/router';
           </a>
         </div>
 
-        <a class="btn btn-outline border-primary text-primary hidden md:flex">
+        <a class="btn btn-outline border-primary rounded-full text-primary hidden md:flex">
           مشاوره رایگان
         </a>
 
         <div class="mx-1"></div>
 
-        <a class="btn btn-primary">
+        <a class="btn btn-primary rounded-full">
           پورتال مشتریان
         </a>
 
