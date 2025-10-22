@@ -13,9 +13,9 @@ import { HomeBadges } from "../home/home-badges";
       </p>
     </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-2 p-4 md:p-0">
+    <section class="grid grid-cols-1 md:grid-cols-3 md:gap-2 p-4 md:p-0">
       <div class="flex flex-col items-end justify-center gap-2 md:py-20">
-        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border border-base-200 p-4 rounded-lg w-full md:w-96 md:-rotate-6 shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
+        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border-b md:border border-base-300 md:border-base-200 p-4 md:rounded-lg w-full md:w-96 md:-rotate-6 md:shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
           <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-solid-paint-96.png" alt="" width="48" height="48" class="object-center object-contain" />
 
           <div class="flex flex-col gap-1">
@@ -26,7 +26,7 @@ import { HomeBadges } from "../home/home-badges";
           </div>
         </div>
 
-        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border border-base-200 p-4 rounded-lg w-full md:w-96 md:rotate-3 shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
+        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border-b md:border border-base-300 md:border-base-200 p-4 md:rounded-lg w-full md:w-96 md:rotate-3 md:shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
           <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-approval-96.png" alt="" width="48" height="48" class="object-center object-contain" />
 
           <div class="flex flex-col gap-1">
@@ -37,7 +37,7 @@ import { HomeBadges } from "../home/home-badges";
           </div>
         </div>
 
-        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border border-base-200 p-4 rounded-lg w-full md:w-96 md:-rotate-1 shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
+        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border-b md:border border-base-300 md:border-base-200 p-4 md:rounded-lg w-full md:w-96 md:-rotate-1 md:shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
           <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-web-96.png" alt="" width="48" height="48" class="object-center object-contain" />
 
           <div class="flex flex-col gap-1">
@@ -50,7 +50,7 @@ import { HomeBadges } from "../home/home-badges";
       </div>
 
       <div class="flex flex-col items-center justify-end text-center p-4 gap-4 relative row-start-1 md:col-start-2">
-        <img ngSrc="/images/demo-1.png" alt="First demo" width="300" height="420" class="object-contain object-center z-20" />
+        <img ngSrc="/images/demo-1.png" alt="First demo" width="300" height="420" class="object-contain object-center md:z-20" />
 
         <div class="absolute bottom-10 right-0 md:-right-10 grid grid-cols-2 grid-rows-3 z-10">
           <img ngSrc="/images/logo/cafebazaar.png" alt="Cafebazaar Logo" width="64" height="64" class="object-contain object-center col-start-2 -rotate-6" />
@@ -64,8 +64,8 @@ import { HomeBadges } from "../home/home-badges";
         </div>
       </div>
       
-      <div class="flex flex-col items-start justify-center gap-2 md:py-20">
-        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border border-base-200 p-4 rounded-lg w-full md:w-96 md:rotate-6 shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
+      <div class="flex flex-col items-start justify-center md:gap-2 md:py-20">
+        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border-b md:border border-base-300 md:border-base-200 p-4 md:rounded-lg w-full md:w-96 md:rotate-6 md:shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
           <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-messaging-96.png" alt="" width="48" height="48" class="object-center object-contain" />
 
           <div class="flex flex-col gap-1">
@@ -76,7 +76,7 @@ import { HomeBadges } from "../home/home-badges";
           </div>
         </div>
 
-        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border border-base-200 p-4 rounded-lg w-full md:w-96 md:-rotate-3 shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
+        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border-b md:border border-base-300 md:border-base-200 p-4 md:rounded-lg w-full md:w-96 md:-rotate-3 md:shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
           <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-commercial-96.png" alt="" width="48" height="48" class="object-center object-contain" />
 
           <div class="flex flex-col gap-1">
@@ -87,7 +87,7 @@ import { HomeBadges } from "../home/home-badges";
           </div>
         </div>
 
-        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border border-base-200 p-4 rounded-lg w-full md:w-96 md:rotate-0 shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
+        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border-b md:border border-base-300 md:border-base-200 p-4 md:rounded-lg w-full md:w-96 md:rotate-0 md:shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
           <img ngSrc="/images/icons/phone.png" alt="Phone icon" width="48" height="48" class="object-center object-contain scale-150" />
 
           <div class="flex flex-col gap-1">
@@ -100,7 +100,7 @@ import { HomeBadges } from "../home/home-badges";
       </div>
     </section>
 
-    <app-home-badges class="px-6 md:px-10" />
+    <app-home-badges class="px-6 md:px-10 mb-10" />
   `,
   host: {
     class: 'flex flex-col gap-10 container mx-auto'

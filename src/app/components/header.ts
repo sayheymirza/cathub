@@ -26,13 +26,15 @@ import { RouterLink } from '@angular/router';
 
       <nav #navbar class="bg-white/40 backdrop-blur transition-all h-24 border-b border-transparent">
         <div class="flex flex-nowrap items-center h-full px-4 container mx-auto">
-          <button class="btn btn-square md:hidden ml-auto">
-            <i class="material-icons-round">menu</i>
-          </button>
+          <div class="md:hidden">
+            <button class="btn btn-square btn-ghost">
+              <i class="material-icons-round">menu</i>
+            </button>
+          </div>
 
           <a routerLink="/" class="flex flex-col sm:flex-row items-center gap-1 sm:gap-4 mx-auto md:mx-0 md:w-36">
             <img ngSrc="/images/logo.png" alt="Cathub Logo" width="56" height="56" class="w-[32px] h-[32px] md:w-[56px] md:h-[56px] transition-all" />
-            <strong class="text-base sm:text-lg md:text-xl">کت هاب</strong>
+            <strong class="text-base sm:text-lg md:text-xl hidden md:block">کت هاب</strong>
           </a>
 
           <div class="hidden md:flex flex-nowrap items-center mx-auto">
