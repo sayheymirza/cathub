@@ -16,7 +16,23 @@ export const routes: Routes = [
             {
                 path: 'consultation',
                 loadComponent: () => import('./routes/consultation/consultation').then(m => m.Consultation)
-            }
+            },
+            {
+                path: 'service/chat',
+                loadComponent: () => import('./routes/pages/service-chat').then(m => m.ServiceChat)
+            },
+            {
+                path: 'service/chat-organization',
+                loadComponent: () => import('./routes/pages/service-chat-organization').then(m => m.ServiceChatOrganization)
+            },
+            {
+                path: 'service/server',
+                loadComponent: () => import('./routes/pages/service-server').then(m => m.ServiceServer)
+            },
+            {
+                path: 'service/social',
+                loadComponent: () => import('./routes/pages/service-social').then(m => m.ServiceSocial)
+            },
         ]
     },
     {

@@ -1,0 +1,111 @@
+import { NgOptimizedImage } from '@angular/common';
+import { Component } from '@angular/core';
+import { HomeBadges } from "../home/home-badges";
+
+@Component({
+  selector: 'app-service-social',
+  imports: [NgOptimizedImage, HomeBadges],
+  template: `
+    <section class="flex flex-col items-center justify-center text-center gap-2 px-4 pt-10">
+      <h1 class="text-3xl font-bold">شبکه اجتماعی اختصاصی</h1>
+      <p class="text-lg leading-8 text-base-content/70">
+        ساخت و انتشار شبکه اجتماعی با سبک و سلیقه خودتان با امکانات کامل و پیشرفته
+      </p>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-2 p-4 md:p-0">
+      <div class="flex flex-col items-end justify-center gap-2 md:py-20">
+        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border border-base-200 p-4 rounded-lg w-full md:w-96 md:-rotate-6 shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
+          <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-solid-paint-96.png" alt="" width="48" height="48" class="object-center object-contain" />
+
+          <div class="flex flex-col gap-1">
+            <h2 class="font-bold">شخصی سازی کامل</h2>
+            <p class="text-base-content/70 leading-7 text-sm">
+              امکان شخصی سازی کامل ظاهر و امکانات شبکه اجتماعی با توجه به نیازها و سلیقه شما
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border border-base-200 p-4 rounded-lg w-full md:w-96 md:rotate-3 shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
+          <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-approval-96.png" alt="" width="48" height="48" class="object-center object-contain" />
+
+          <div class="flex flex-col gap-1">
+            <h2 class="font-bold">تحویل و پشتیبانی فوری</h2>
+            <p class="text-base-content/70 leading-7 text-sm">
+              تحویل سریع پروژه و پشتیبانی 24 ساعته برای رفع مشکلات و به‌روزرسانی‌های آینده
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border border-base-200 p-4 rounded-lg w-full md:w-96 md:-rotate-1 shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
+          <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-web-96.png" alt="" width="48" height="48" class="object-center object-contain" />
+
+          <div class="flex flex-col gap-1">
+            <h2 class="font-bold">پنل مدیریت قدرتمند</h2>
+            <p class="text-base-content/70 leading-7 text-sm">
+              پنل مدیریت پیشرفته برای کنترل کامل بر کاربران، محتوا و تنظیمات شبکه اجتماعی شما
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center justify-end text-center p-4 gap-4 relative row-start-1 md:col-start-2">
+        <img ngSrc="/images/demo-1.png" alt="First demo" width="300" height="420" class="object-contain object-center z-20" />
+
+        <div class="absolute bottom-10 right-0 md:-right-10 grid grid-cols-2 grid-rows-3 z-10">
+          <img ngSrc="/images/logo/cafebazaar.png" alt="Cafebazaar Logo" width="64" height="64" class="object-contain object-center col-start-2 -rotate-6" />
+          <img ngSrc="/images/logo/myket.png" alt="Myket Logo" width="64" height="64" class="object-contain object-center rotate-12" />
+          <img ngSrc="/images/logo/sibapp.png" alt="Sibapp Logo" width="64" height="64" class="object-contain object-center row-start-3 col-start-2 rotate-6" />
+        </div>
+
+        <div class="absolute bottom-10 left-0 md:-left-10 grid grid-cols-2 grid-rows-3 z-0">
+          <img ngSrc="/images/logo/google-play.png" alt="Google Play Logo" width="64" height="64" class="object-contain object-center col-start-2 row-start-3 -rotate-6" />
+          <img ngSrc="/images/logo/apple.png" alt="Apple Logo" width="64" height="64" class="object-contain object-center rotate-12" />
+        </div>
+      </div>
+      
+      <div class="flex flex-col items-start justify-center gap-2 md:py-20">
+        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border border-base-200 p-4 rounded-lg w-full md:w-96 md:rotate-6 shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
+          <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-messaging-96.png" alt="" width="48" height="48" class="object-center object-contain" />
+
+          <div class="flex flex-col gap-1">
+            <h2 class="font-bold">چت همیشه آنلاین و بلادرنگ</h2>
+            <p class="text-base-content/70 leading-7 text-sm">
+              سیستم چت پیشرفته با قابلیت ارسال پیام‌های فوری و اشتراک‌گذاری انواع فایل ها
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border border-base-200 p-4 rounded-lg w-full md:w-96 md:-rotate-3 shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
+          <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-commercial-96.png" alt="" width="48" height="48" class="object-center object-contain" />
+
+          <div class="flex flex-col gap-1">
+            <h2 class="font-bold">سیستم نوتیفیکیشن هوشمند</h2>
+            <p class="text-base-content/70 leading-7 text-sm">
+              ارسال نوتیفیکیشن‌های هوشمند برای افزایش تعامل کاربران و اطلاع‌رسانی به موقع
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-nowrap items-center gap-4 bg-base-100 border border-base-200 p-4 rounded-lg w-full md:w-96 md:rotate-0 shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
+          <img ngSrc="/images/icons/phone.png" alt="Phone icon" width="48" height="48" class="object-center object-contain scale-150" />
+
+          <div class="flex flex-col gap-1">
+            <h2 class="font-bold">سیستم نوتیفیکیشن هوشمند</h2>
+            <p class="text-base-content/70 leading-7 text-sm">
+              ارسال نوتیفیکیشن‌های هوشمند برای افزایش تعامل کاربران و اطلاع‌رسانی به موقع
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <app-home-badges class="px-6 md:px-10" />
+  `,
+  host: {
+    class: 'flex flex-col gap-10 container mx-auto'
+  }
+})
+export class ServiceSocial {
+
+}

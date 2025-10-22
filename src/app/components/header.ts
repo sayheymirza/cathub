@@ -30,7 +30,7 @@ import { RouterLink } from '@angular/router';
             <i class="material-icons-round">menu</i>
           </button>
 
-          <a routerLink="/" class="flex flex-col sm:flex-row items-center gap-1 sm:gap-4 mx-auto md:mx-0">
+          <a routerLink="/" class="flex flex-col sm:flex-row items-center gap-1 sm:gap-4 mx-auto md:mx-0 md:w-36">
             <img ngSrc="/images/logo.png" alt="Cathub Logo" width="56" height="56" class="w-[32px] h-[32px] md:w-[56px] md:h-[56px] transition-all" />
             <strong class="text-base sm:text-lg md:text-xl">کت هاب</strong>
           </a>
@@ -42,10 +42,10 @@ import { RouterLink } from '@angular/router';
                 <i class="material-icons-round">arrow_drop_down</i>
               </div>
               <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                <li><a>ساخت اپلیکیشن چت</a></li>
-                <li><a>ساخت شبکه اجتماعی</a></li>
-                <li><a>چت سازمانی</a></li>
-                <li><a>سرور اختصاصی</a></li>
+                <li><a routerLink="/service/chat">ساخت اپلیکیشن چت</a></li>
+                <li><a routerLink="/service/social">ساخت شبکه اجتماعی</a></li>
+                <li><a routerLink="/service/chat-orginization">چت سازمانی</a></li>
+                <li><a routerLink="/service/server">سرور اختصاصی</a></li>
               </ul>
             </div>
 
@@ -79,7 +79,7 @@ import { RouterLink } from '@angular/router';
     </header>
   `,
   host: {
-    class: 'block sticky top-0 md:-top-10 z-10'
+    class: 'block sticky top-0 md:-top-10 z-50'
   },
 })
 export class Header {
@@ -100,6 +100,6 @@ export class Header {
       element.classList.add('h-24', 'border-transparent');
       element.classList.remove(...'border-base-content/10 h-16'.split(' '));
       element.querySelector('img')?.classList.remove('!w-[32px]', '!h-[32px]');
-    }    
+    }
   }
 }
