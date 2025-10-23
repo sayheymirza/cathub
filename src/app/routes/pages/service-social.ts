@@ -1,16 +1,27 @@
 import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { HomeBadges } from "../home/home-badges";
+import { RouterLink } from '@angular/router';
+import { DemoGenerator } from "../../components/demo-generator";
 
 @Component({
   selector: 'app-service-social',
-  imports: [NgOptimizedImage, HomeBadges],
+  imports: [NgOptimizedImage, RouterLink, HomeBadges, DemoGenerator],
   template: `
     <section class="flex flex-col items-center justify-center text-center gap-2 px-4 pt-10">
-      <h1 class="text-3xl font-bold">شبکه اجتماعی اختصاصی</h1>
+      <h1 class="text-3xl font-bold">شبکه اجتماعی اختصاصی برندتان را بسازید</h1>
       <p class="text-lg leading-8 text-base-content/70">
-        ساخت و انتشار شبکه اجتماعی با سبک و سلیقه خودتان با امکانات کامل و پیشرفته
+        از ایده تا اجرا و انتشار؛ ما زیرساخت کامل شبکه اجتماعی شما را می‌سازیم
       </p>
+
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a routerLink="/order" class="btn btn-primary rounded-full">
+          ثبت درخواست
+        </a>
+        <a routerLink="/consultation" class="btn btn-primary rounded-full btn-outline">
+          درخواست مشاوره
+        </a>
+      </div>
     </section>
 
     <section class="grid grid-cols-1 md:grid-cols-3 md:gap-2 p-4 md:p-0">
@@ -100,7 +111,10 @@ import { HomeBadges } from "../home/home-badges";
       </div>
     </section>
 
+    <app-demo-generator />
+    
     <app-home-badges class="px-6 md:px-10 mb-10" />
+
   `,
   host: {
     class: 'flex flex-col gap-10 container mx-auto'
