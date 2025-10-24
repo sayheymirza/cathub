@@ -45,8 +45,10 @@ import { RouterLink } from '@angular/router';
               </div>
               <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                 <li><a routerLink="/service/chat">ساخت اپلیکیشن چت</a></li>
-                <li><a routerLink="/service/social">ساخت شبکه اجتماعی</a></li>
-                <li><a routerLink="/service/chat-orginization">چت سازمانی</a></li>
+                <li><a routerLink="/service/social-media">ساخت شبکه اجتماعی</a></li>
+                <li><a routerLink="/service/organization">چت سازمانی</a></li>
+                <li><a routerLink="/service/gaming">چت بازی و سرگرمی</a></li>
+                <li><a routerLink="/service/support">چت پشتیبانی</a></li>
                 <li><a routerLink="/service/server">سرور اختصاصی</a></li>
               </ul>
             </div>

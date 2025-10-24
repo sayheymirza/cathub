@@ -8,49 +8,9 @@ import { Swiper } from 'swiper/types';
   imports: [NgOptimizedImage, FormsModule, NgStyle],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
-    <div class="md:col-span-2 flex flex-col gap-1 py-8">
-      <div class="flex flex-col gap-2">
-        <h2 class="text-xl font-bold">اپلیکیشن خودتان را بسازید</h2>
-        <p class="text-base-content/70 leading-7">
-          پیش نمایشی از امکانات و قابلیت‌های شبکه اجتماعی شما
-        </p>
-      </div>
-
-      <!-- name of each tab group should be unique -->
-      <div class="tabs tabs-lift mt-10">
-        <input type="radio" name="demo" class="tab" aria-label="اطلاعات اپلیکیشن" checked="checked" />
-        <div class="tab-content bg-base-100 border-base-300 rounded-field p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="border border-base-content/20 rounded-field p-4 flex flex-nowrap items-center gap-4 md:col-span-2">
-            <img ngSrc="{{logo()}}" alt="Application logo" width="48" height="48" class="rounded-lg" />
-
-            <strong class="flex-1">لوگو اپلیکیشن</strong>
-
-            <button (click)="changeLogo()" class="btn btn-primary btn-sm rounded-full">
-              تغییر
-            </button>
-          </div>
-
-          <fieldset class="fieldset w-full">
-            <legend class="fieldset-legend">نام اپلیکیشن</legend>
-            <input [(ngModel)]="name" type="text" placeholder="نام اپلیکیشن شما" class="input input-lg text-sm w-full focus:input-primary" />
-          </fieldset>
-
-          <fieldset class="fieldset w-full">
-            <legend class="fieldset-legend">رنگ اپلیکیشن</legend>
-            <label class="input input-lg text-sm w-full focus-within:input-primary">
-              <input (click)="colorPicker.focus()" [(ngModel)]="color" type="text" readonly placeholder="رنگ اپلیکیشن شما" dir="ltr" class="font-mono" />
-              <input #colorPicker [(ngModel)]="color" type="color" class="rounded-full w-8 min-h-8 h-8 border-none outline-none appearance-none">
-            </label>
-          </fieldset>
-        </div>
-
-        <!-- <input type="radio" name="demo" class="tab" aria-label="Tab 2" />
-        <div class="tab-content bg-base-100 border-base-300 p-6">Tab content 2</div> -->
-      </div>
-    </div>
 
     <section class="flex flex-col items-center justify-center gap-4">
-      <div class="flex items-center justify-center p-4 relative">
+      <div class="flex items-center justify-center p-10 relative bg-base-200 w-full rounded-2xl">
       <img src="/images/iphone.png" alt="IPhone Mockup" class="min-w-[280px] h-[575px] absolute" />
 
       <div class="rounded-[36px] overflow-hidden bg-black">
@@ -87,7 +47,7 @@ import { Swiper } from 'swiper/types';
           </swiper-container>
         </div>
 
-        <div class="w-[250px] h-4 flex flex-nowrap items-center justify-between absolute top-8 px-4 z-1">
+        <div class="w-[250px] h-4 flex flex-nowrap items-center justify-between absolute top-14 px-4 z-1">
           <div class="flex flex-nowrap items-center gap-1">
             <img ngSrc="/images/icons/battery.png" alt="Battery" width="18" height="18" />
             <img ngSrc="/images/icons/wifi.png" alt="Wifi" width="14" height="14" />
@@ -97,7 +57,7 @@ import { Swiper } from 'swiper/types';
           <strong class="font-mono text-[11px]">12:34</strong>
         </div>
 
-        <div class="bg-black h-6 w-20 rounded-full absolute top-7 left-1/2 -translate-x-1/2"></div>
+        <div class="bg-black h-6 w-20 rounded-full absolute top-12 left-1/2 -translate-x-1/2"></div>
       </div>
 
       <div class="flex flex-nowrap items-center justify-between gap-4">
@@ -112,9 +72,51 @@ import { Swiper } from 'swiper/types';
         </button>
       </div>
     </section>
+
+    <div class="md:col-span-2 flex flex-col gap-1 py-8">
+      <div class="flex flex-col gap-2">
+        <h2 class="text-xl font-bold">اپلیکیشن خودتان را بسازید</h2>
+        <p class="text-base-content/70 leading-7">
+          پیش نمایشی از امکانات و قابلیت‌های شبکه اجتماعی شما
+        </p>
+      </div>
+
+      <!-- name of each tab group should be unique -->
+      <div class="tabs tabs-border mt-10">
+        <input type="radio" name="demo" class="tab checked:text-primary" aria-label="اطلاعات اپلیکیشن" checked="checked" />
+        <div class="tab-content bg-base-100 rounded-field py-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="border border-base-content/20 rounded-field p-4 flex flex-nowrap items-center gap-4 md:col-span-2">
+            <img ngSrc="{{logo()}}" alt="Application logo" width="48" height="48" class="rounded-lg" />
+
+            <strong class="flex-1">لوگو اپلیکیشن</strong>
+
+            <button (click)="changeLogo()" class="btn btn-primary btn-sm rounded-full">
+              تغییر
+            </button>
+          </div>
+
+          <fieldset class="fieldset w-full">
+            <legend class="fieldset-legend">نام اپلیکیشن</legend>
+            <input [(ngModel)]="name" type="text" placeholder="نام اپلیکیشن شما" class="input input-lg text-sm w-full focus:input-primary" />
+          </fieldset>
+
+          <fieldset class="fieldset w-full">
+            <legend class="fieldset-legend">رنگ اپلیکیشن</legend>
+            <label class="input input-lg text-sm w-full focus-within:input-primary">
+              <input (click)="colorPicker.focus()" [(ngModel)]="color" type="text" readonly placeholder="رنگ اپلیکیشن شما" dir="ltr" class="font-mono" />
+              <input #colorPicker [(ngModel)]="color" type="color" class="rounded-full w-8 min-h-8 h-8 border-none outline-none appearance-none">
+            </label>
+          </fieldset>
+        </div>
+
+        <!-- <input type="radio" name="demo" class="tab" aria-label="Tab 2" />
+        <div class="tab-content bg-base-100 py-6">Tab content 2</div> -->
+      </div>
+    </div>
+
   `,
   host: {
-    class: 'grid grid-cols-1 md:grid-cols-3 px-4 md:px-0'
+    class: 'grid grid-cols-1 md:grid-cols-3 md:gap-10 px-4 md:px-0'
   }
 })
 export class DemoGenerator {

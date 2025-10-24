@@ -1,4 +1,7 @@
-import { Routes } from '@angular/router';
+import { Route, Routes, UrlSegment } from '@angular/router';
+import serviceDynamicJson from './routes/service/service-dynamic.json';
+
+const serviceDynamicKeys = Object.keys(serviceDynamicJson);
 
 export const routes: Routes = [
     {
@@ -18,20 +21,19 @@ export const routes: Routes = [
                 loadComponent: () => import('./routes/consultation/consultation').then(m => m.Consultation)
             },
             {
-                path: 'service/chat',
-                loadComponent: () => import('./routes/pages/service-chat').then(m => m.ServiceChat)
-            },
-            {
-                path: 'service/chat-organization',
-                loadComponent: () => import('./routes/pages/service-chat-organization').then(m => m.ServiceChatOrganization)
+                path: 'service/:category',
+                loadComponent: () => import('./routes/service/service-dynamic').then(m => m.ServiceDynamic),
+                // just can category be: social-media, support, gaming
+                canMatch: [
+                    (route: Route, segments: UrlSegment[]) => {
+                        const category = segments[1]?.path;
+                        return serviceDynamicKeys.includes(category);
+                    },
+                ]
             },
             {
                 path: 'service/server',
-                loadComponent: () => import('./routes/pages/service-server').then(m => m.ServiceServer)
-            },
-            {
-                path: 'service/social',
-                loadComponent: () => import('./routes/pages/service-social').then(m => m.ServiceSocial)
+                loadComponent: () => import('./routes/service/service-server').then(m => m.ServiceServer)
             },
         ]
     },

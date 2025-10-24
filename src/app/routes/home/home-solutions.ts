@@ -152,6 +152,32 @@ export class HomeSolutions {
           description: "اطلاع‌رسانی سریع پیام‌ها و فعالیت‌ها برای افزایش تعامل کاربران."
         }
       ]
+    },
+    {
+      title: 'بازی و سرگرمی', // online mobile games
+      icon: 'sports_esports',
+      items: [
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-messaging-96.png',
+          title: "چت درون‌بازی بلادرنگ",
+          description: "بازیکنان می‌توانند در حین بازی با یکدیگر ارتباط برقرار کنند."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-copy-96.png',
+          title: "اتاق‌های گفتگو و گروه‌های بازی",
+          description: "ایجاد اتاق‌های اختصاصی برای تیم‌ها و گروه‌های بازی."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-solid-paint-96.png',
+          title: "شخصی‌سازی رابط کاربری چت",
+          description: "ظاهر چت مطابق با تم و گرافیک بازی طراحی می‌شود."
+        },
+        {
+          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-commercial-96.png',
+          title: "نوتیفیکیشن‌های فوری برای رویدادهای بازی",
+          description: "اطلاع‌رسانی به بازیکنان درباره پیام‌ها و رویدادهای مهم بازی."
+        }
+      ]
     }
   ];
 

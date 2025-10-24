@@ -10,9 +10,9 @@ import { RouterLink } from '@angular/router';
       <div class="flex flex-col md:flex-row items-center justify-between gap-4 rounded-2xl bg-base-200 p-4 mx-4">
         <h3 class="font-bold">عضو خبرنامه ما شوید</h3>
         
-        <label class="input focus-within:input-primary">
+        <label class="input rounded-full focus-within:input-primary">
           <input type="email" class="placeholder:text-right" placeholder="ایمیل خود را وارد کنید" />
-          <button class="btn btn-sm btn-primary -me-2">
+          <button class="btn btn-sm btn-primary rounded-full -me-2">
             درخواست عضویت
           </button>
         </label>
@@ -31,8 +31,10 @@ import { RouterLink } from '@angular/router';
           <strong class="mb-4">خدمات ما</strong>
 
           <a routerLink="/service/chat" class="hover:underline">ساخت اپلیکیشن چت</a>
-          <a routerLink="/service/social" class="hover:underline">ساخت شبکه اجتماعی</a>
+          <a routerLink="/service/social-media" class="hover:underline">ساخت شبکه اجتماعی</a>
           <a routerLink="/service/chat-organization" class="hover:underline">چت سازمانی</a>
+          <a routerLink="/service/chat-gaiming" class="hover:underline">چت بازی و سرگرمی</a>
+          <a routerLink="/service/chat-support" class="hover:underline">چت پشتیبانی</a>
           <a routerLink="/service/server" class="hover:underline">سرور اختصاصی</a>
         </div>
 

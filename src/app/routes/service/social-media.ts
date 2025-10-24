@@ -1,12 +1,13 @@
 import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
-import { HomeBadges } from "../home/home-badges";
 import { RouterLink } from '@angular/router';
-import { DemoGenerator } from "../../components/demo-generator";
+import { SectionApplicationCategories } from "./section-application-categories";
+import { SectionFaq } from "../../components/section-faq";
+import { HomeBadges } from "../home/home-badges";
 
 @Component({
-  selector: 'app-service-social',
-  imports: [NgOptimizedImage, RouterLink, HomeBadges, DemoGenerator],
+  selector: 'app-social-media',
+  imports: [NgOptimizedImage, RouterLink, HomeBadges, SectionFaq, SectionApplicationCategories],
   template: `
     <section class="flex flex-col items-center justify-center text-center gap-2 px-4 pt-10">
       <h1 class="text-3xl font-bold">شبکه اجتماعی اختصاصی برندتان را بسازید</h1>
@@ -111,15 +112,46 @@ import { DemoGenerator } from "../../components/demo-generator";
       </div>
     </section>
 
-    <app-demo-generator />
+    <section class="grid grid-cols-3 gap-10">
+      <div class="flex flex-col">
+        <h2 class="text-3xl font-bold leading-12">
+          روند و مسیر ساخت شبکه اجتماعی شما چگونه است؟
+        </h2>
+      </div>
+    </section>
+    
+    <app-section-application-categories />
+
+    <app-section-faq [items]="faq" category="ساخت شبکه اجتماعی" />
     
     <app-home-badges class="px-6 md:px-10 mb-10" />
 
   `,
   host: {
-    class: 'flex flex-col gap-10 container mx-auto'
+    class: 'flex flex-col gap-32 container mx-auto'
   }
 })
-export class ServiceSocial {
-
+export class SocialMedia {
+  public faq: Array<{ question: string; answer: string }> = [
+    {
+      question: 'آیا می‌توانم شبکه اجتماعی خود را با برند و لوگوی خودم داشته باشم؟',
+      answer: 'بله، ما امکان شخصی‌سازی کامل ظاهر و امکانات شبکه اجتماعی شما را فراهم می‌کنیم تا با برند شما هماهنگ باشد.'
+    },
+    {
+      question: 'چه مدت طول می‌کشد تا شبکه اجتماعی من ساخته شود؟',
+      answer: 'زمان ساخت بستگی به پیچیدگی پروژه دارد، اما معمولاً بین 4 تا 12 هفته طول می‌کشد.'
+    },
+    {
+      question: 'آیا پشتیبانی پس از تحویل پروژه ارائه می‌دهید؟',
+      answer: 'بله، ما پشتیبانی 24 ساعته برای رفع مشکلات و به‌روزرسانی‌های آینده ارائه می‌دهیم.'
+    },
+    {
+      question: 'آیا می‌توانم ویژگی‌های خاصی را در شبکه اجتماعی خود اضافه کنم؟',
+      answer: 'بله، ما می‌توانیم ویژگی‌های سفارشی را بر اساس نیازهای شما اضافه کنیم.'
+    },
+    {
+      question: 'هزینه ساخت یک شبکه اجتماعی چقدر است؟',
+      answer: 'هزینه بستگی به ویژگی‌ها و پیچیدگی پروژه دارد. برای دریافت یک برآورد دقیق، لطفاً با ما تماس بگیرید.'
+    },
+  ];
 }
