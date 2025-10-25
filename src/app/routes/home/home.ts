@@ -1,16 +1,16 @@
 import { Component, inject } from '@angular/core';
+import { SectionBadges } from "../../components/section-badges";
 import { Seo } from '../../services/seo';
-import { HomeBadges } from "./home-badges";
 import { HomeFeatures } from './home-features';
 import { HomeHero } from "./home-hero";
 import { HomeSolutions } from "./home-solutions";
 
 @Component({
   selector: 'app-home',
-  imports: [HomeHero, HomeBadges, HomeFeatures, HomeSolutions],
+  imports: [HomeHero, SectionBadges, HomeFeatures, HomeSolutions],
   template: `
     <app-home-hero />
-    <app-home-badges class="px-6 md:px-10" />
+    <app-section-badges class="px-6 md:px-10" />
     <app-home-features />
     <app-home-solutions />
   `,

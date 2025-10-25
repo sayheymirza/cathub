@@ -1,14 +1,14 @@
 import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { SectionApplicationCategories } from "./section-application-categories";
+import { SectionBadges } from '../../components/section-badges';
 import { SectionFaq } from '../../components/section-faq';
-import { HomeBadges } from '../home/home-badges';
+import { SectionApplicationCategories } from "./section-application-categories";
 import { SectionHero } from './section-hero';
 import json from './service-dynamic.json';
 
 @Component({
   selector: 'app-service-dynamic',
-  imports: [RouterLink, SectionFaq, HomeBadges, SectionApplicationCategories, SectionHero],
+  imports: [RouterLink, SectionFaq, SectionBadges, SectionApplicationCategories, SectionHero],
   template: `
     <section class="flex flex-col items-center justify-center text-center gap-2 px-4 pt-10 -mb-20">
       <h1 class="text-3xl font-bold">{{heroTitle()}}</h1>
@@ -32,7 +32,7 @@ import json from './service-dynamic.json';
 
     <app-section-faq [items]="faqItems()" [category]="faqCategory()" />
   
-    <app-home-badges class="px-6 md:px-10 mb-10" />
+    <app-section-badges class="px-6 md:px-10 mb-10" />
   `,
   host: {
     class: 'flex flex-col gap-32 container mx-auto'

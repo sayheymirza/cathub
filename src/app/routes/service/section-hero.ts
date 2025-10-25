@@ -82,9 +82,9 @@ import { Component } from '@angular/core';
           <img ngSrc="/images/icons/phone.png" alt="Phone icon" width="48" height="48" class="object-center object-contain scale-150" />
 
           <div class="flex flex-col gap-1">
-            <h2 class="font-bold">سیستم نوتیفیکیشن هوشمند</h2>
+            <h2 class="font-bold">تماس صوتی و ویدئویی</h2>
             <p class="text-base-content/70 leading-7 text-sm">
-              ارسال نوتیفیکیشن‌های هوشمند برای افزایش تعامل کاربران و اطلاع‌رسانی به موقع
+              امکان برقراری تماس‌های صوتی و ویدئویی با کیفیت بالا و بدون قطعی
             </p>
           </div>
         </div>

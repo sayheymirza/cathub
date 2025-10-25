@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-home-badges',
+  selector: 'app-section-badges',
   imports: [],
   template: `
     @for (item of badges; track $index) {
@@ -19,7 +19,7 @@ import { Component } from '@angular/core';
     class: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:py-4 gap-4'
   }
 })
-export class HomeBadges {
+export class SectionBadges {
   public badges: any[] = [
     {
       icon: 'share_location',

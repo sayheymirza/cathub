@@ -5,10 +5,9 @@ import { RouterLink } from '@angular/router';
   selector: 'app-section-application-categories',
   imports: [RouterLink],
   template: `
-    <div class="grid grid-cols-6 gap-4 w-full">
-      <div></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
       @for (item of categories; track $index) {
-        <a routerLink="{{item.link}}" class="flex flex-col items-center gap-1 overflow-hidden rounded-2xl relative h-96 p-8 cursor-pointer group">
+        <a routerLink="{{item.link}}" class="flex flex-col items-center gap-1 overflow-hidden rounded-2xl relative aspect-square p-8 cursor-pointer group">
           <div class="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black to-black/0"></div>
 
             <img src="{{item.background}}" alt="پس زمینه ساخت اپلیکیشن مناسب {{item.title}}" class="absolute inset-0 w-full h-full object-center object-cover -z-1 transition-all group-hover:scale-110" />
@@ -16,19 +15,15 @@ import { RouterLink } from '@angular/router';
             <span class="text-white/70 w-full z-1">ساخت اپلیکیشن مناسب</span>
             <strong class="text-white w-full text-lg z-1">{{item.title}}</strong>
 
-            <img src="{{item.demo}}" alt="ساخت اپلیکیشن مناسب {{item.title}}" class="absolute w-56 -bottom-4/6 object-bottom object-contain scale-85 transition-all group-hover:mb-5 group-hover:scale-90"/>
+            <img src="{{item.demo}}" alt="ساخت اپلیکیشن مناسب {{item.title}}" class="absolute aspect-square -bottom-4/6 object-top object-contain scale-125 transition-all group-hover:mb-5 group-hover:scale-130"/>
 
             <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-black/0"></div>
         </a>
       }
     </div>
-
-    <a routerLink="/order" class="btn btn-primary rounded-full">
-      ثبت درخواست
-    </a>
   `,
   host: {
-    class: 'flex flex-col items-center justify-center gap-4'
+    class: 'flex flex-col items-center justify-center gap-4 p-4 md:p-0'
   }
 })
 export class SectionApplicationCategories {
