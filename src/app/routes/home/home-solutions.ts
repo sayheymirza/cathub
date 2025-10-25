@@ -5,7 +5,7 @@ import { Component, computed, signal } from '@angular/core';
   imports: [],
   template: `
   <div class="flex flex-col gap-4">
-    <h2 class="font-bold text-2xl">راه‌حل‌هایی برای ساخت ارتباط سریع، امن و مقیاس‌پذیر</h2>
+    <h2 class="font-bold text-2xl">راهکار هایی برای ساخت ارتباط سریع، امن و مقیاس‌پذیر</h2>
     <p class="text-base-content/80 leading-7">
       متناسب با نوع کسب‌وکار، مقیاس تیم و نیاز کاربران، کت‌هاب راه‌حل‌های اختصاصی برای طراحی و پیاده‌سازی سیستم‌های چت ارائه می‌دهد.
     </p>
@@ -20,9 +20,9 @@ import { Component, computed, signal } from '@angular/core';
         </label>
 
         <div class="tab-content py-8">
-          <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-10">
+          <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
             @for (item of item.items; track $index) {
-              <div class="flex flex-col gap-4 bg-base-200 rounded-xl p-6 -shadow-lg group">
+              <div class="flex flex-col gap-4 bg-base-200 rounded-xl p-6 group transition-all">
                 <div class="flex flex-nowrap items-center gap-4">
                   @if(item.image) {
                     <img src="{{item.image}}" alt="{{item.title}}" width="44px" class=" transition-all group-hover:scale-125 group-hover:rotate-6" />

@@ -1,32 +1,24 @@
 import { Component, inject, signal } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { SectionBadges } from '../../components/section-badges';
 import { SectionFaq } from '../../components/section-faq';
 import { SectionApplicationCategories } from "./section-application-categories";
 import { SectionHero } from './section-hero';
+import { SectionSolution } from "./section-solution";
 import json from './service-dynamic.json';
 
 @Component({
   selector: 'app-service-dynamic',
-  imports: [RouterLink, SectionFaq, SectionBadges, SectionApplicationCategories, SectionHero],
+  imports: [SectionFaq, SectionBadges, SectionApplicationCategories, SectionHero, SectionSolution],
   template: `
-    <section class="flex flex-col items-center justify-center text-center gap-2 px-4 pt-10 -mb-20">
-      <h1 class="text-3xl font-bold">{{heroTitle()}}</h1>
-      <p class="text-lg leading-8 text-base-content/70">
-        {{heroSubtitle()}}
-      </p>
 
-      <div class="flex flex-wrap gap-2 mt-4">
-        <a routerLink="/order" class="btn btn-primary rounded-full">
-          ثبت درخواست
-        </a>
-        <a routerLink="/consultation" class="btn btn-primary rounded-full btn-outline">
-          درخواست مشاوره
-        </a>
-      </div>
-    </section>
+    <app-section-hero [title]="heroTitle()" [subtitle]="heroSubtitle()" />
 
-    <app-section-hero />
+    <app-section-solution 
+      [title]="solutionTitle()"
+      [description]="solutionDescription()"
+      [items]="solutionItems()"
+    />
 
     <app-section-application-categories />
 
@@ -41,6 +33,10 @@ import json from './service-dynamic.json';
 export class ServiceDynamic {
   private activatedRoute = inject(ActivatedRoute);
 
+  public solutionTitle = signal('');
+  public solutionDescription = signal('');
+  public solutionItems = signal<Array<any>>([]);
+
   public heroTitle = signal('');
   public heroSubtitle = signal('');
 
@@ -51,6 +47,10 @@ export class ServiceDynamic {
     this.activatedRoute.params.subscribe((params) => {
       const category = params['category'] as keyof typeof json;
       const value = json[category];
+
+      this.solutionTitle.set(value['solution']['title']);
+      this.solutionDescription.set(value['solution']['description']);
+      this.solutionItems.set(value['solution']['items'] || []);
 
       this.heroTitle.set(value['hero']['title']);
       this.heroSubtitle.set(value['hero']['subtitle']);

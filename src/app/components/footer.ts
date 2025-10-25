@@ -50,8 +50,8 @@ import { RouterLink } from '@angular/router';
           <strong class="mb-4">لینک های مفید</strong>
 
           <a class="hover:underline">وبلاگ</a>
-          <a class="hover:underline">درباره ما</a>
-          <a class="hover:underline">تماس با ما</a>
+          <a routerLink="/about-us" class="hover:underline">درباره ما</a>
+          <a routerLink="/contact-us" class="hover:underline">تماس با ما</a>
         </div>
 
         <div class="flex flex-col gap-2">
