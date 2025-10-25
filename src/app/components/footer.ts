@@ -32,9 +32,9 @@ import { RouterLink } from '@angular/router';
 
           <a routerLink="/service/chat" class="hover:underline">ساخت اپلیکیشن چت</a>
           <a routerLink="/service/social-media" class="hover:underline">ساخت شبکه اجتماعی</a>
-          <a routerLink="/service/chat-organization" class="hover:underline">چت سازمانی</a>
-          <a routerLink="/service/chat-gaiming" class="hover:underline">چت بازی و سرگرمی</a>
-          <a routerLink="/service/chat-support" class="hover:underline">چت پشتیبانی</a>
+          <a routerLink="/service/organization" class="hover:underline">چت سازمانی</a>
+          <a routerLink="/service/gaiming" class="hover:underline">چت بازی و سرگرمی</a>
+          <a routerLink="/service/support" class="hover:underline">چت پشتیبانی</a>
           <a routerLink="/service/server" class="hover:underline">سرور اختصاصی</a>
         </div>
 

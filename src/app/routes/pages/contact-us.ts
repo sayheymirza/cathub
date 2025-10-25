@@ -46,7 +46,7 @@ import { Component } from '@angular/core';
     </div>
   `,
   host: {
-    class: 'container mx-auto flex flex-col lg:flex-row items-center justify-center py-20'
+    class: 'container max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-center py-20'
   }
 })
 export class ContactUs {
