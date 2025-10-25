@@ -20,8 +20,8 @@ import { RouterLink } from "@angular/router";
     </div>
     
     <div class="flex flex-nowrap items-end justify-center gap-4 -mb-20 md:mb-0 md:relative md:-bottom-20">
-      <img src="/images/demo-1.png" alt="First Demo" class="w-fit h-[300px] md:h-[480px] object-center object-contain lg:static md:absolute left-0 z-1 shadow-xl rounded-none md:rounded-[45px]" />
-      <img src="/images/demo-2.png" alt="Second Demo" class="w-fit h-[300px] md:h-[480px] object-center object-contain lg:static md:absolute left-10 top-0 shadow-xl rounded-none md:rounded-[45px]" />
+      <img src="/images/demo/demo-1.png" alt="First Demo" class="w-fit h-[300px] md:h-[480px] object-center object-contain lg:static md:absolute left-0 z-1 shadow-xl rounded-none md:rounded-[45px]" />
+      <img src="/images/demo/demo-2.png" alt="Second Demo" class="w-fit h-[300px] md:h-[480px] object-center object-contain lg:static md:absolute left-10 top-0 shadow-xl rounded-none md:rounded-[45px]" />
     </div>
   `,
   host: {

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   template: `
     <div class="flex flex-col items-end justify-center gap-2 md:py-20">
         <div class="flex flex-nowrap items-center gap-4 bg-base-100 border-b md:border border-base-300 md:border-base-200 p-4 md:rounded-lg w-full md:w-96 md:-rotate-6 md:shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
-          <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-solid-paint-96.png" alt="" width="48" height="48" class="object-center object-contain" />
+          <img src="/images/icons/custom-design.png" alt="" width="48" height="48" class="object-center object-contain" />
 
           <div class="flex flex-col gap-1">
             <h2 class="font-bold">شخصی سازی کامل</h2>
@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
         </div>
 
         <div class="flex flex-nowrap items-center gap-4 bg-base-100 border-b md:border border-base-300 md:border-base-200 p-4 md:rounded-lg w-full md:w-96 md:rotate-3 md:shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
-          <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-approval-96.png" alt="" width="48" height="48" class="object-center object-contain" />
+          <img src="/images/icons/verified-immediate.png" alt="" width="48" height="48" class="object-center object-contain" />
 
           <div class="flex flex-col gap-1">
             <h2 class="font-bold">تحویل و پشتیبانی فوری</h2>
@@ -29,7 +29,7 @@ import { Component } from '@angular/core';
         </div>
 
         <div class="flex flex-nowrap items-center gap-4 bg-base-100 border-b md:border border-base-300 md:border-base-200 p-4 md:rounded-lg w-full md:w-96 md:-rotate-1 md:shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
-          <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-web-96.png" alt="" width="48" height="48" class="object-center object-contain" />
+          <img src="/images/icons/admin-panel.png" alt="" width="48" height="48" class="object-center object-contain" />
 
           <div class="flex flex-col gap-1">
             <h2 class="font-bold">پنل مدیریت قدرتمند</h2>
@@ -41,7 +41,7 @@ import { Component } from '@angular/core';
       </div>
 
       <div class="flex flex-col items-center justify-end text-center p-4 gap-4 relative row-start-1 md:col-start-2">
-        <img ngSrc="/images/demo-1.png" alt="First demo" width="300" height="420" class="object-contain object-center md:z-20" />
+        <img ngSrc="/images/demo/demo-1.png" alt="First demo" width="300" height="420" class="object-contain object-center md:z-20" />
 
         <div class="absolute bottom-10 right-0 md:-right-10 grid grid-cols-2 grid-rows-3 z-10">
           <img ngSrc="/images/logo/cafebazaar.png" alt="Cafebazaar Logo" width="64" height="64" class="object-contain object-center col-start-2 -rotate-6" />
@@ -57,7 +57,7 @@ import { Component } from '@angular/core';
       
       <div class="flex flex-col items-start justify-center md:gap-2 md:py-20">
         <div class="flex flex-nowrap items-center gap-4 bg-base-100 border-b md:border border-base-300 md:border-base-200 p-4 md:rounded-lg w-full md:w-96 md:rotate-6 md:shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
-          <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-messaging-96.png" alt="" width="48" height="48" class="object-center object-contain" />
+          <img src="/images/icons/messaging.png" alt="" width="48" height="48" class="object-center object-contain" />
 
           <div class="flex flex-col gap-1">
             <h2 class="font-bold">چت همیشه آنلاین و بلادرنگ</h2>
@@ -68,7 +68,7 @@ import { Component } from '@angular/core';
         </div>
 
         <div class="flex flex-nowrap items-center gap-4 bg-base-100 border-b md:border border-base-300 md:border-base-200 p-4 md:rounded-lg w-full md:w-96 md:-rotate-3 md:shadow-xl md:scale-75 md:-ml-10 lg:ml-0 lg:scale-90 xl:scale-100">
-          <img src="https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-commercial-96.png" alt="" width="48" height="48" class="object-center object-contain" />
+          <img src="/images/icons/notification.png" alt="" width="48" height="48" class="object-center object-contain" />
 
           <div class="flex flex-col gap-1">
             <h2 class="font-bold">سیستم نوتیفیکیشن هوشمند</h2>

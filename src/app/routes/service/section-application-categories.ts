@@ -35,25 +35,25 @@ export class SectionApplicationCategories {
   public categories: ICategory[] = [
     {
       background: 'https://framerusercontent.com/images/4qnokRsn8IcYg2taGZVhF5IV3M.png',
-      demo: 'http://localhost:4200/images/demo-1.png',
+      demo: '/images/demo/demo-1.png',
       title: 'شبکه اجتماعی',
       link: '/service/social',
     },
     {
       background: 'https://framerusercontent.com/images/blADvRdZ1gZF0BA9XQSJHl2arXs.png',
-      demo: 'http://localhost:4200/images/demo-1.png',
+      demo: '/images/demo/demo-1.png',
       title: 'سازمانی',
       link: '/service/organization',
     },
     {
       background: 'https://framerusercontent.com/images/H1i4F1XuMup4KQkd7oB9vf7KzV4.png',
-      demo: 'http://localhost:4200/images/demo-1.png',
+      demo: '/images/demo/demo-1.png',
       title: 'پشتیبانی آنلاین',
       link: '/service/support',
     },
     {
       background: 'https://framerusercontent.com/images/Yql7MjrSu556cy9OZy8jKCkCsO8.png',
-      demo: 'http://localhost:4200/images/demo-1.png',
+      demo: '/images/demo/demo-1.png',
       title: 'بازی و سرگرمی',
       link: '/service/gaming',
     },

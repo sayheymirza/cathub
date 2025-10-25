@@ -62,27 +62,27 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 export class HomeFeatures {
   public features: any[] = [
     {
-      image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-solid-paint-96.png',
+      image: '/images/icons/custom-design.png',
       title: 'طراحی اختصاصی',
       subtitle: 'اپ شما با ظاهر و تجربه کاربری ویژه‌ی برندتان ساخته می‌شود.',
     },
     {
-      image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-guarantee-96.png',
+      image: '/images/icons/verified-security.png',
       title: 'امنیت کامل داده‌ها',
       subtitle: 'تمام پیام‌ها رمزگذاری و در سرورهای امن نگهداری می‌شوند.',
     },
     {
-      image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-approval-96.png',
+      image: '/images/icons/verified-immediate.png',
       title: 'تحویل فوری',
       subtitle: 'در کمتر از یک هفته نسخه نهایی آماده استفاده است.',
     },
     {
-      image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-brainstorm-skill-96.png',
+      image: '/images/icons/brain-storm.png',
       title: 'پشتیبانی فنی مداوم',
       subtitle: 'تیم کت‌هاب همواره وضعیت اپلیکیشن شما را پایش و به‌روزرسانی می‌کند.',
     },
     {
-      image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-web-96.png',
+      image: '/images/icons/admin-panel.png',
       title: 'پنل مدیریت قدرتمند',
       subtitle: 'مدیریت کاربران، پیام‌ها و تنظیمات اپلیکیشن از طریق پنل وب آسان است.',
     }

@@ -54,22 +54,22 @@ export class HomeSolutions {
       icon: 'apartment',
       items: [
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-messaging-96.png',
+          image: '/images/icons/messaging.png',
           title: "چت سازمانی داخلی",
           description: "راه‌حلی برای برقراری ارتباط سریع بین تیم‌ها با امنیت دادهٔ درون‌سازمانی."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-unit-96.png',
+          image: '/images/icons/permission.png',
           title: "کنترل دسترسی و مدیریت نقش‌ها",
           description: "تعریف سطح دسترسی برای مدیران، کارمندان و بخش‌های مختلف سازمان."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-copy-96.png',
+          image: '/images/icons/report.png',
           title: "گزارش‌گیری و مانیتورینگ ارتباطات",
           description: "امکان پایش فعالیت‌ها، کیفیت پاسخ‌گویی و تحلیل تعامل داخلی."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-3d-pointer-96.png',
+          image: '/images/icons/cursor.png',
           title: "ادغام با سیستم‌های سازمانی (CRM، ERP)",
           description: "اتصال مستقیم سیستم چت کت‌هاب به سامانه‌های مدیریتی و منابع انسانی."
         }
@@ -80,22 +80,22 @@ export class HomeSolutions {
       icon: 'rocket_launch',
       items: [
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-brainstorm-skill-96.png',
+          image: '/images/icons/brain-storm.png',
           title: "ساخت سریع اپلیکیشن چت بدون تیم فنی",
           description: "در چند روز پیام‌رسان اختصاصی خود را تحویل بگیرید."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-solid-paint-96.png',
+          image: '/images/icons/custom-design.png',
           title: "طراحی سفارشی متناسب با برند",
           description: "رنگ، لوگو و ظاهر اپ به‌صورت کامل مطابق هویت استارتاپ شما تنظیم می‌شود."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-vertical-timeline-96.png',
+          image: '/images/icons/timeline.png',
           title: "زیرساخت مقیاس‌پذیر از روز اول",
           description: "افزایش کاربران بدون نگرانی از پرفورمنس یا هزینه‌های سرور."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-web-96.png',
+          image: '/images/icons/admin-panel.png',
           title: "مدیریت ساده از داشبورد مرکزی",
           description: "کاربران، گفتگوها و تنظیمات را از یک پنل واحد کنترل کنید."
         }
@@ -106,22 +106,22 @@ export class HomeSolutions {
       icon: 'support_agent',
       items: [
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-messaging-96.png',
+          image: '/images/icons/messaging.png',
           title: "چت هم‌زمان با چند کاربر",
           description: "پشتیبان‌ها می‌توانند به چند گفت‌وگو به‌صورت هم‌زمان پاسخ دهند."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-guarantee-96.png',
+          image: '/images/icons/verified-security.png',
           title: "سیستم برچسب‌گذاری و تیکت",
           description: "گفتگوها قابل دسته‌بندی و پیگیری تا زمان حل مشکل هستند."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-vertical-timeline-96.png',
+          image: '/images/icons/timeline.png',
           title: "آمار و تحلیل عملکرد تیم",
           description: "نمایش داده‌های پاسخ‌گویی، زمان انتظار و سطح رضایت کاربران."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-3d-pointer-96.png',
+          image: '/images/icons/cursor.png',
           title: "اتصال به CRM و سیستم‌های مدیریت مشتری",
           description: "انتقال خودکار داده‌ها و تاریخچه گفتگوها به پروفایل مشتریان."
         }
@@ -132,22 +132,22 @@ export class HomeSolutions {
       icon: 'groups',
       items: [
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-messaging-96.png',
+          image: '/images/icons/messaging.png',
           title: "ایجاد گروه و کانال اختصاصی",
           description: "ساخت گروه‌های گفت‌وگو یا کانال‌های اطلاع‌رسانی با کنترل مدیر."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-picture-96.png',
+          image: '/images/icons/picture.png',
           title: "پروفایل کاربری و پیام خصوصی",
           description: "هر کاربر دارای صفحه شخصی و امکان گفت‌وگوی مستقیم است."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-solid-paint-96.png',
+          image: '/images/icons/custom-design.png',
           title: "طراحی اجتماعی متناسب با برند",
           description: "رابط کاربری چت مطابق تم و گرافیک شبکهٔ شما ساخته می‌شود."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-commercial-96.png',
+          image: '/images/icons/notification.png',
           title: "سیستم نوتیفیکیشن بلادرنگ",
           description: "اطلاع‌رسانی سریع پیام‌ها و فعالیت‌ها برای افزایش تعامل کاربران."
         }
@@ -158,22 +158,22 @@ export class HomeSolutions {
       icon: 'sports_esports',
       items: [
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-messaging-96.png',
+          image: '/images/icons/messaging.png',
           title: "چت درون‌بازی بلادرنگ",
           description: "بازیکنان می‌توانند در حین بازی با یکدیگر ارتباط برقرار کنند."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-copy-96.png',
+          image: '/images/icons/report.png',
           title: "اتاق‌های گفتگو و گروه‌های بازی",
           description: "ایجاد اتاق‌های اختصاصی برای تیم‌ها و گروه‌های بازی."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-solid-paint-96.png',
+          image: '/images/icons/custom-design.png',
           title: "شخصی‌سازی رابط کاربری چت",
           description: "ظاهر چت مطابق با تم و گرافیک بازی طراحی می‌شود."
         },
         {
-          image: 'https://landingo.themi.ir/wp-content/uploads/2025/03/icons8-commercial-96.png',
+          image: '/images/icons/notification.png',
           title: "نوتیفیکیشن‌های فوری برای رویدادهای بازی",
           description: "اطلاع‌رسانی به بازیکنان درباره پیام‌ها و رویدادهای مهم بازی."
         }
