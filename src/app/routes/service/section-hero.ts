@@ -6,8 +6,8 @@ import { RouterLink } from '@angular/router';
   selector: 'app-section-hero',
   imports: [NgOptimizedImage, RouterLink],
   template: `
-    <div class="flex flex-col justify-center gap-4 p-4">
-      <h1 class="text-3xl font-bold">{{title()}}</h1>
+    <div class="flex flex-col items-center text-center md:items-start md:text-start justify-center gap-4 p-4">
+      <h1 class="text-3xl font-bold leading-12">{{title()}}</h1>
       <p class="text-lg leading-8 text-base-content/70">
         {{subtitle()}}
       </p>
@@ -38,7 +38,7 @@ import { RouterLink } from '@angular/router';
       </div>
   `,
   host: {
-    class: 'grid grid-cols-2 md:gap-2 p-4 md:p-0'
+    class: 'grid grid-cols-1 md:grid-cols-2 md:gap-2 p-4 md:p-0'
   }
 })
 export class SectionHero {

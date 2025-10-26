@@ -5,12 +5,12 @@ import { Component, input } from '@angular/core';
   selector: 'app-section-solution',
   imports: [NgOptimizedImage],
   template: `
-    <div class="w-1/2 flex flex-col gap-4 p-4">
+    <div class="md:w-1/2 flex flex-col gap-4 p-4">
       <h2 class="text-2xl font-bold">{{title()}}</h2>
       <p class="text-base-content/80 leading-8">{{description()}}</p>
     </div>
 
-    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+    <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
       @for (item of items(); track $index) {
         <div class="flex flex-col gap-4 hover:bg-base-200 rounded-xl p-6 group transition-all">
           <div class="flex flex-nowrap items-center gap-4">

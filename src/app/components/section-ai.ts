@@ -13,8 +13,8 @@ import { Component } from '@angular/core';
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="flex items-start gap-4 p-4 bg-base-200 rounded-xl">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="flex flex-col sm:flex-row items-start gap-4 p-4 bg-base-200 rounded-xl">
           <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
             <i class="material-icons-round text-white text-sm">flash_on</i>
           </div>
@@ -24,7 +24,7 @@ import { Component } from '@angular/core';
           </div>
         </div>
 
-        <div class="flex items-start gap-4 p-4 bg-base-200 rounded-xl">
+        <div class="flex flex-col sm:flex-row items-start gap-4 p-4 bg-base-200 rounded-xl">
           <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
             <i class="material-icons-round text-white text-sm">person</i>
           </div>
@@ -34,7 +34,7 @@ import { Component } from '@angular/core';
           </div>
         </div>
 
-        <div class="flex items-start gap-4 p-4 bg-base-200 rounded-xl">
+        <div class="flex flex-col sm:flex-row items-start gap-4 p-4 bg-base-200 rounded-xl">
           <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
             <i class="material-icons-round text-white text-sm">analytics</i>
           </div>
@@ -44,7 +44,7 @@ import { Component } from '@angular/core';
           </div>
         </div>
 
-        <div class="flex items-start gap-4 p-4 bg-base-200 rounded-xl">
+        <div class="flex flex-col sm:flex-row items-start gap-4 p-4 bg-base-200 rounded-xl">
           <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
             <i class="material-icons-round text-white text-sm">integration_instructions</i>
           </div>
@@ -56,7 +56,7 @@ import { Component } from '@angular/core';
       </div>
 
       <div class="flex items-center gap-4 p-6 bg-base-200 rounded-2xl">
-        <div class="flex -space-x-2">
+        <div class="hidden md:flex -space-x-2">
           <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">💼</div>
           <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">🚀</div>
           <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">⚡</div>
