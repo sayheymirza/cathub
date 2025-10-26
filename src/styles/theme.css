@@ -37,3 +37,10 @@
     --depth: 0;
     --noise: 0;
 }
+
+@layer components {
+    .flag {
+        @apply w-[100vw] h-[100vw] top-1/2 left-1/2 -translate-1/2 bg-conic/decreasing from-violet-700 via-lime-300 to-violet-700 animate-spin;
+        animation-duration: 3s;
+    }
+}
