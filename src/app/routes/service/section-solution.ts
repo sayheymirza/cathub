@@ -12,7 +12,7 @@ import { Component, input } from '@angular/core';
 
     <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
       @for (item of items(); track $index) {
-        <div class="flex flex-col gap-4 bg-base-200 rounded-xl p-6 group transition-all">
+        <div class="flex flex-col gap-4 hover:bg-base-200 rounded-xl p-6 group transition-all">
           <div class="flex flex-nowrap items-center gap-4">
             @if(item.image) {
               <img ngSrc="{{item.image}}" alt="{{item.title}}" width="44" height="44" class=" transition-all group-hover:scale-125 group-hover:rotate-6" />

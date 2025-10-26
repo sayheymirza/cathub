@@ -35,7 +35,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     <div class="flex flex-col gap-4 p-4">
       <h2 class="font-bold text-2xl">راه‌حل ما، ساخت سریع اپلیکیشن چت با برند شما</h2>
 
-      <p class="text-base-content/80 leading-7">
+      <p class="text-base-content/70 leading-8 text-lg">
         با استفاده از پلتفرم کت‌هاب، می‌توانید در کمتر از یک هفته اپلیکیشن چت اختصاصی خود را با طراحی منحصربه‌فرد و امکانات پیشرفته بسازید. ما تمامی جنبه‌های فنی را مدیریت می‌کنیم تا شما بتوانید بر رشد کسب‌وکار خود تمرکز کنید.
       </p>
 

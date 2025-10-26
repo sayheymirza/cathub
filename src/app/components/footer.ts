@@ -7,10 +7,10 @@ import { RouterLink } from '@angular/router';
   imports: [NgOptimizedImage, RouterLink],
   template: `
     <section class="container mx-auto mb-4">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4 rounded-2xl bg-base-200 p-4 mx-4">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 rounded-2xl bg-primary/8 text-primary p-4 mx-4">
         <h3 class="font-bold">عضو خبرنامه ما شوید</h3>
         
-        <label class="input rounded-full focus-within:input-primary">
+        <label class="input rounded-full input-primary">
           <input type="email" class="placeholder:text-right" placeholder="ایمیل خود را وارد کنید" />
           <button class="btn btn-sm btn-primary rounded-full -me-2">
             درخواست عضویت

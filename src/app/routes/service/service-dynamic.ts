@@ -1,5 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SectionAi } from "../../components/section-ai";
 import { SectionBadges } from '../../components/section-badges';
 import { SectionFaq } from '../../components/section-faq';
 import { SectionApplicationCategories } from "./section-application-categories";
@@ -9,7 +10,7 @@ import json from './service-dynamic.json';
 
 @Component({
   selector: 'app-service-dynamic',
-  imports: [SectionFaq, SectionBadges, SectionApplicationCategories, SectionHero, SectionSolution],
+  imports: [SectionFaq, SectionBadges, SectionApplicationCategories, SectionHero, SectionSolution, SectionAi],
   template: `
 
     <app-section-hero [title]="heroTitle()" [subtitle]="heroSubtitle()" />
@@ -19,6 +20,8 @@ import json from './service-dynamic.json';
       [description]="solutionDescription()"
       [items]="solutionItems()"
     />
+
+    <app-section-ai />
 
     <app-section-application-categories />
 

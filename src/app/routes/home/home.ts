@@ -4,15 +4,17 @@ import { Seo } from '../../services/seo';
 import { HomeFeatures } from './home-features';
 import { HomeHero } from "./home-hero";
 import { HomeSolutions } from "./home-solutions";
+import { SectionAi } from "../../components/section-ai";
 
 @Component({
   selector: 'app-home',
-  imports: [HomeHero, SectionBadges, HomeFeatures, HomeSolutions],
+  imports: [HomeHero, SectionBadges, HomeFeatures, HomeSolutions, SectionAi],
   template: `
     <app-home-hero />
     <app-section-badges class="px-6 md:px-10" />
     <app-home-features />
     <app-home-solutions />
+    <app-section-ai />
   `,
   host: {
     class: 'flex flex-col gap-4 md:gap-32 container mx-auto'
