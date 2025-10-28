@@ -43,4 +43,12 @@
         @apply w-[100vw] h-[100vw] top-1/2 left-1/2 -translate-1/2 bg-conic/decreasing from-violet-700 via-lime-300 to-violet-700 animate-spin;
         animation-duration: 3s;
     }
+
+    .radar {
+        @apply relative w-1 h-1 md:w-2 md:h-2 bg-primary rounded-full;
+    }
+
+    .radar::before {
+        @apply content-[''] block w-full h-full absolute top-1/2 left-1/2 -translate-1/2 scale-150 bg-primary/10 rounded-full -z-1 animate-ping;
+    }
 }
