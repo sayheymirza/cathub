@@ -48,5 +48,15 @@ export const routes: Routes = [
     {
         path: 'login',
         loadComponent: () => import('./routes/login/login').then(m => m.Login)
+    },
+    {
+        path: 'panel',
+        loadComponent: () => import('./layouts/panel').then(m => m.Panel),
+        children: [
+            {
+                path: '',
+                loadComponent: () => import('./routes/panel/ticketing').then(m => m.Ticketing)
+            }
+        ],
     }
 ];

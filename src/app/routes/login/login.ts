@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-login',
   imports: [FormsModule, NgOptimizedImage, RouterLink],
   template: `
-      <div class="flex flex-nowrap items-center gap-2 p-4 absolute top-4 right-4">
+      <div class="flex flex-nowrap items-center gap-2 p-4 absolute top-2 md:top-4 right-2 md:right-4">
         <a routerLink="/" class="btn btn-primary btn-ghost btn-circle">
           <i class="material-icons-round">arrow_forward</i>
         </a>
