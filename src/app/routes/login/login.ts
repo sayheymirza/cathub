@@ -1,7 +1,7 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -76,6 +76,7 @@ import { RouterLink } from '@angular/router';
               <button 
                 class="btn btn-primary w-full"
                 [disabled]="!code() || code().length < 4"
+                (click)="submit()"
               >
                 تایید و ورود
               </button>
@@ -99,4 +100,10 @@ export class Login {
   public phone = signal('');
   public code = signal('');
   public step = signal(0);
+
+  private router = inject(Router);
+
+  public submit() {
+    this.router.navigate(['/panel'])
+  }
 }
