@@ -51,4 +51,17 @@
     .mirza-radar::before {
         @apply content-[''] block w-full h-full absolute top-1/2 left-1/2 -translate-1/2 scale-150 bg-primary/10 rounded-full -z-1 animate-ping;
     }
+
+    .mirza-overlay {
+        @apply fixed inset-0 bg-black/50 backdrop-blur;
+    }
+
+    .mirza-dialog {
+        @apply flex flex-col bg-base-100 border border-base-content/12 md:rounded-2xl shadow-lg min-w-[300px] md:max-w-xl w-full md:w-xl h-dvh md:h-fit md:max-h-[80dvh] p-4 overflow-hidden;
+    }
+
+    ::picker(select) {
+       right: anchor(110%);
+       left: 0px;
+    }
 }

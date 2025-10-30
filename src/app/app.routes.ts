@@ -55,7 +55,7 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
-                loadComponent: () => import('./routes/panel/ticketing').then(m => m.Ticketing)
+                loadComponent: () => import('./routes/panel/tickets').then(m => m.Tickets)
             }
         ],
     }
