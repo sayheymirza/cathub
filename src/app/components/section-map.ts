@@ -58,7 +58,7 @@ export class SectionMap {
 
     // Use Renderer2 instead of document.createElement
     const div = this.renderer.createElement('div');
-    this.renderer.addClass(div, 'radar');
+    this.renderer.addClass(div, 'mirza-radar');
     this.renderer.addClass(div, radarClass);
 
     // Get the SVG element and its dimensions

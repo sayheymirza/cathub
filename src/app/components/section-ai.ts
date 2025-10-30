@@ -57,7 +57,7 @@ import { Component } from '@angular/core';
 
       <!-- lgbt gradient with tailwind -->
       <div class="p-0.5 rounded-[18px] overflow-hidden relative">
-        <div class="flag absolute -z-1"></div>
+        <div class="mirza-flag absolute -z-1"></div>
 
         <div class="flex items-center gap-4 p-6 bg-base-100 rounded-2xl">
           <div class="flex-1 flex flex-col gap-1">
