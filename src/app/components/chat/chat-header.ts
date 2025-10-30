@@ -4,6 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-chat-header',
   imports: [],
   template: `
+    <ng-content select="[backable]"></ng-content>
+
     <strong>عنوان تیکت</strong>
 
     <div class="flex-1"></div>

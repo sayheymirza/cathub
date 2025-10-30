@@ -63,7 +63,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
     <section class="w-full h-64 bg-gradient-to-b from-secondary to-primary hidden md:block"></section>
 
-    <section class="container h-full mx-auto flex flex-col grow mt-16 md:-mt-24">
+    <section class="container h-full mx-auto flex flex-col grow md:mb-16 mt-16 md:-mt-24">
       <router-outlet></router-outlet>
     </section>
   `,

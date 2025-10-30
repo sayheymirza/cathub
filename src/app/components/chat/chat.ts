@@ -7,7 +7,11 @@ import { ChatFooter } from "./chat-footer";
   selector: 'app-chat',
   imports: [ChatHeader, ChatMessages, ChatFooter],
   template: `
-    <app-chat-header />
+    <app-chat-header>
+      <ng-container backable>
+        <ng-content select="[backable]"></ng-content>
+      </ng-container>
+    </app-chat-header>
     <app-chat-messages class="grow pb-16" />
     <app-chat-footer class="absolute bottom-4 left-4 right-4"/>
   `,

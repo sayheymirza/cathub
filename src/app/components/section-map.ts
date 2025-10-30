@@ -6,7 +6,7 @@ import { Component, ElementRef, HostListener, Inject, Input, PLATFORM_ID, Render
   imports: [],
   templateUrl: './section-map.svg',
   host: {
-    class: 'w-full h-full rounded-xl overflow-scroll relative'
+    class: 'w-full h-full rounded-xl overflow-hidden relative'
   }
 })
 export class SectionMap {
