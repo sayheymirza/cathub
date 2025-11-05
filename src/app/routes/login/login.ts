@@ -1,13 +1,14 @@
 import { isPlatformBrowser, NgOptimizedImage } from '@angular/common';
-import { Component, computed, inject, PLATFORM_ID, signal } from '@angular/core';
+import { Component, computed, inject, PLATFORM_ID, signal, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { ArcaptchaAngularComponent, ArcaptchaAngularModule } from 'arcaptcha-angular';
 import { Http } from '../../services/http';
 import { User } from '../../services/user';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, NgOptimizedImage, RouterLink],
+  imports: [FormsModule, NgOptimizedImage, RouterLink, ArcaptchaAngularModule],
   template: `
       <div class="flex flex-nowrap items-center gap-2 p-4 absolute top-2 md:top-4 right-2 md:right-4">
         <a routerLink="/" class="btn btn-primary btn-ghost btn-circle">
@@ -47,7 +48,7 @@ import { User } from '../../services/user';
                 [disabled]="disabled()"
                 [(ngModel)]="phone"
                 (keyup.enter)="submit()"
-                placeholder="09123456789"
+                placeholder="09"
                 class="input focus:input-primary w-full"
                 dir="ltr"
                 maxlength="11"
@@ -128,6 +129,8 @@ import { User } from '../../services/user';
           }
         </div>
       </section>
+
+      <lib-arcaptcha-angular #arcaptcha site_key="2o8d1er3eg" api_url="/arcaptcha.js" [invisible]="true" (callback)="submit()" /> 
   `,
   host: {
     class: 'flex flex-col items-center justify-center w-screen h-dvh overflow-hidden'
@@ -158,6 +161,8 @@ export class Login {
   private http = inject(Http);
   private user = inject(User);
   private platformId = inject(PLATFORM_ID);
+
+  private arcaptcha = viewChild<ArcaptchaAngularComponent>('arcaptcha');
 
   private timerInterval: any = null;
 
@@ -250,12 +255,18 @@ export class Login {
 
       this.disabled.set(true)
 
+      const token = await this.arcaptcha()!.execute();
+
+
       const result = await this.http.request({
         method: 'POST',
         path: '/api/v1/auth/request',
         data: {
           phone: this.phone(),
         },
+        header: {
+          'x-captcha': token.arcaptcha_token
+        }
       });
 
 
@@ -289,6 +300,8 @@ export class Login {
 
       this.disabled.set(true);
 
+      const token = await this.arcaptcha()!.execute();
+
       const result = await this.http.request({
         method: 'POST',
         path: '/api/v1/auth/verify',
@@ -296,6 +309,9 @@ export class Login {
           phone: this.phone(),
           code: this.code(),
         },
+        header: {
+          'x-captcha': token,
+        }
       });
 
       if (result.body.ok && result.body.token) {

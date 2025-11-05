@@ -86,7 +86,7 @@ const captcha = async (req: Request, res: Response, next: NextFunction) => {
             return next();
         }
 
-        const token = req.body?.captcha || req.query['captcha'] || req.headers['x-captcha-token'];
+        const token = req.body?.captcha || req.query['captcha'] || req.headers['x-captcha-token'] || req.headers['x-captcha'];
 
         if (!token) {
             return res.status(400).json({
