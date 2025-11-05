@@ -37,8 +37,5 @@ COPY --from=build /app/prisma ./prisma
 COPY --from=build /app/node_modules/.prisma /app/node_modules/.prisma
 COPY --from=build /app/node_modules/@prisma /app/node_modules/@prisma
 
-# ensure prisma client initialized (no schema needed now, already present)
-RUN npx prisma generate
-
 EXPOSE 4000
 CMD ["npm", "run", "serve:ssr:cathub"]
