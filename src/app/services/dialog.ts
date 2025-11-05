@@ -10,7 +10,6 @@ export class Dialog {
     private dialog = inject(CdkDialog);
 
     public open(component: any, config: any = {}) {
-        this.document.querySelector('html')!.style.overflow = 'hidden';
 
         const dialog = this.dialog.open(component, {
             ...config,
@@ -24,10 +23,6 @@ export class Dialog {
 
         this.document.querySelector('.cdk-overlay-backdrop')!.addEventListener('click', () => {
             dialog.close();
-        });
-
-        dialog.closed.subscribe(() => {
-            this.document.querySelector('html')!.style.removeProperty('overflow');
         });
 
         return dialog;

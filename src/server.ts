@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import {
   AngularNodeAppEngine,
   createNodeRequestHandler,
@@ -7,10 +9,14 @@ import {
 import express from 'express';
 import { join } from 'node:path';
 
+import routes from './server/routes';
+
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
+
+app.use('/api/v1', routes);
 
 /**
  * Example Express Rest API endpoints can be defined here.
@@ -23,6 +29,14 @@ const angularApp = new AngularNodeAppEngine();
  * });
  * ```
  */
+
+/**
+ * Serve uploads folder
+ */
+app.use(
+  '/uploads',
+  express.static(join(process.cwd(), 'volume/uploads')),
+);
 
 /**
  * Serve static files from /browser

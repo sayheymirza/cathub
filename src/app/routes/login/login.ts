@@ -1,7 +1,9 @@
-import { NgOptimizedImage } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { isPlatformBrowser, NgOptimizedImage } from '@angular/common';
+import { Component, computed, inject, PLATFORM_ID, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { Http } from '../../services/http';
+import { User } from '../../services/user';
 
 @Component({
   selector: 'app-login',
@@ -40,18 +42,24 @@ import { Router, RouterLink } from '@angular/router';
               </legend>
 
               <input 
-                type="tel" 
+                type="tel"
+                [class.input-error]="error() != ''"
+                [disabled]="disabled()"
                 [(ngModel)]="phone"
-                (keyup.enter)="step.set(1)"
+                (keyup.enter)="submit()"
                 placeholder="09123456789"
                 class="input focus:input-primary w-full"
                 dir="ltr"
+                maxlength="11"
               >
+              <p class="label text-error">
+                {{error()}}
+              </p>
             </fieldset>
             <button 
               class="btn btn-primary w-full"
-              (click)="step.set(1)"
-              [disabled]="!phone()"
+              (click)="submit()"
+              [disabled]="!phone() || phone().length != 11 || disabled()"
             >
               ارسال کد تایید
             </button>
@@ -63,27 +71,56 @@ import { Router, RouterLink } from '@angular/router';
               </legend>
 
               <input 
-                type="text" 
+                type="tel"
+                [class.input-error]="error() != ''"
+                [disabled]="disabled()"
                 [(ngModel)]="code"
-                placeholder="کد ۴ رقمی را وارد کنید"
+                (keyup.enter)="submit()"
+                placeholder="کد {{length()}} رقمی را وارد کنید"
                 class="input focus:input-primary w-full placeholder:text-right"
                 dir="ltr"
-                maxlength="4"
+                maxlength="{{length()}}"
               >
+              <p class="label text-error">
+                {{error()}}
+              </p>
             </fieldset>
 
+            
             <div class="flex flex-col gap-2 w-full">
+              <div class="flex flex-nowrap items-center justify-between">
+                @if(!canRerequest()) {
+                  <p class="px-2 text-base-content/70 text-sm">
+                    <span dir="ltr" class="countdown">
+                      <span class="text-center w-4" style="--value:{{timeMinute()}}; --digits: 2;" aria-live="polite" aria-label="{{timeMinute()}}">{{timeMinute()}}</span>
+                      :
+                    <span class="text-center w-4" style="--value:{{timeSecond()}}; --digits: 2;" aria-live="polite" aria-label="{{timeSecond()}}">{{timeSecond()}}</span>
+                  </span>
+                  
+                  تا ارسال مجدد
+                </p>
+              } @else {
+                <p class="px-2 text-base-content/70 text-sm">
+                  کد تایید را دریافت نکردید ؟
+                </p>
+              }
+                
+                <button class="btn btn-ghost text-primary btn-sm" [disabled]="!canRerequest() || disabled()" (click)="request()">
+                  ارسال مجدد
+                </button>
+              </div>
+
               <button 
                 class="btn btn-primary w-full"
-                [disabled]="!code() || code().length < 4"
+                [disabled]="!code() || code().length < length() || disabled()"
                 (click)="submit()"
               >
                 تایید و ورود
               </button>
               
               <button 
-                class="btn btn-ghost w-full"
-                (click)="step.set(0)"
+                class="btn btn-ghost w-full text-primary"
+                (click)="error.set(''); step.set(0)"
               >
                 تغییر شماره موبایل
               </button>
@@ -100,10 +137,184 @@ export class Login {
   public phone = signal('');
   public code = signal('');
   public step = signal(0);
+  public disabled = signal(false);
+  public time = signal('00:00');
+  public length = signal(4);
+  public error = signal('');
+
+  public timeMinute = computed(() => {
+    return parseInt(this.time().split(':')[0]);
+  });
+
+  public timeSecond = computed(() => {
+    return parseInt(this.time().split(':')[1]);
+  });
+
+  public canRerequest = computed(() => {
+    return this.time() == '00:00';
+  });
 
   private router = inject(Router);
+  private http = inject(Http);
+  private user = inject(User);
+  private platformId = inject(PLATFORM_ID);
+
+  private timerInterval: any = null;
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      const token = window.localStorage.getItem('#cathub/token');
+      if (token) {
+        this.router.navigate(['/panel'], { replaceUrl: true });
+        return;
+      }
+
+      const stored = window.localStorage.getItem('#cathub/auth');
+      if (stored) {
+        try {
+          const authData = JSON.parse(stored);
+          if (authData?.ok && authData?.result) {
+            this.phone.set(authData.result.phone || '');
+            this.length.set(authData.result.length || 4);
+
+            if (authData.result.expired_at) {
+              const now = Date.now();
+              const expiredAt = new Date(authData.result.expired_at).getTime();
+              const remainingSeconds = Math.max(0, Math.floor((expiredAt - now) / 1000));
+
+              if (remainingSeconds > 0) {
+                this.step.set(1);
+                this.startTimer(remainingSeconds);
+
+                if (authData.result.code) {
+                  this.code.set(authData.result.code);
+                }
+              } else {
+                window.localStorage.removeItem('#cathub/auth');
+                this.step.set(0);
+                this.code.set('');
+              }
+            }
+          }
+        } catch (error) {
+          console.error('Failed to parse stored auth data:', error);
+          window.localStorage.removeItem('#cathub/auth');
+        }
+      }
+    }
+  }
 
   public submit() {
-    this.router.navigate(['/panel'])
+    if (this.step() == 0) {
+      this.request();
+    } else if (this.step() == 1) {
+      this.verify();
+    }
+  }
+
+
+  /**
+   * Start timer from seconds to 0 and format it as time
+   * @param seconds 
+   */
+  private startTimer(seconds: number) {
+    clearInterval(this.timerInterval);
+
+    const format = () => {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+
+      this.time.set(`${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`);
+    }
+
+    format();
+
+    this.timerInterval = setInterval(() => {
+      if (seconds > 0) {
+        seconds--;
+        format();
+      } else {
+        clearInterval(this.timerInterval);
+      }
+    }, 1000);
+  }
+
+  public async request() {
+    try {
+      this.error.set('');
+
+      if (!this.phone() || this.phone().length != 11 || this.phone().startsWith('09') == false) {
+        this.error.set('شماره موبایل وارد شده معتبر نیست');
+        return;
+      }
+
+      this.disabled.set(true)
+
+      const result = await this.http.request({
+        method: 'POST',
+        path: '/api/v1/auth/request',
+        data: {
+          phone: this.phone(),
+        },
+      });
+
+
+      if (result.body.ok) {
+        this.startTimer(result.body.result.ttl);
+        this.length.set(result.body.result.length);
+        this.step.set(1);
+
+        if (result.body.result.code) {
+          this.code.set(result.body.result.code);
+        }
+
+        window.localStorage.setItem('#cathub/auth', JSON.stringify(result.body));
+      }
+
+    } catch (error) {
+      console.error(error);
+    } finally {
+      this.disabled.set(false);
+    }
+  }
+
+  private async verify() {
+    try {
+      this.error.set('');
+
+      if (!this.code() || this.code().length < this.length()) {
+        this.error.set('کد تایید وارد شده معتبر نیست');
+        return;
+      }
+
+      this.disabled.set(true);
+
+      const result = await this.http.request({
+        method: 'POST',
+        path: '/api/v1/auth/verify',
+        data: {
+          phone: this.phone(),
+          code: this.code(),
+        },
+      });
+
+      if (result.body.ok && result.body.token) {
+        window.localStorage.setItem('#cathub/token', result.body.token);
+        window.localStorage.removeItem('#cathub/auth');
+        clearInterval(this.timerInterval);
+        this.user.whoami();
+        this.router.navigate(['/panel'], { replaceUrl: true });
+      }
+
+      if (!result.body.ok && result.body.code == 'INVALID_OTP') {
+        this.error.set('کد تایید وارد شده اشتباه است');
+      }
+
+    } catch (error) {
+      console.error(error);
+    } finally {
+      this.disabled.set(false);
+    }
+
   }
 }

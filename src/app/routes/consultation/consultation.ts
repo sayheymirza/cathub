@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Http } from '../../services/http';
+import { Toast } from '../../services/toast';
 import { HomeSolutions } from '../home/home-solutions';
 
 @Component({
@@ -39,7 +41,7 @@ import { HomeSolutions } from '../home/home-solutions';
         <textarea formControlName="message" rows="4" class="textarea focus:textarea-primary w-full" placeholder="توضیحات کاملی از نیاز خود ارائه دهید..."></textarea>
       </fieldset>
 
-      <button class="btn btn-primary w-fit col-start-2 mr-auto">
+      <button (click)="submit()" [disabled]="form.disabled" class="btn btn-primary w-fit col-start-2 mr-auto">
         ارسال درخواست
       </button>
     </form>
@@ -56,9 +58,40 @@ import { HomeSolutions } from '../home/home-solutions';
   `
 })
 export class Consultation {
+  private http = inject(Http);
+  private toast = inject(Toast);
+
   public form = new FormGroup({
     name: new FormControl('', [Validators.required]),
     phone: new FormControl('', [Validators.required]),
-    message: new FormControl('', []),
+    message: new FormControl('', [Validators.required, Validators.minLength(10)]),
   });
+
+  public async submit() {
+    this.form.markAllAsTouched();
+
+    if (this.form.valid) {
+      try {
+        this.form.disable();
+
+        const result = await this.http.request({
+          method: 'POST',
+          path: '/api/v1/consultation',
+          auth: true,
+          data: this.form.value
+        });
+
+        this.toast.make(result.body.code, result.body.ok ? 'success' : 'error');
+
+        if (result.body.ok) {
+          this.form.reset();
+        }
+
+      } catch (error) {
+        //
+      } finally {
+        this.form.enable();
+      }
+    }
+  }
 }

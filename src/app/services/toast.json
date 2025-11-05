@@ -1,0 +1,19 @@
+{
+    "FORBIDDEN": "دسترسی شما غیر مجاز است",
+    "INTERNAL_SERVER_ERROR": "خطای سمت سرور رخ داد",
+    "BAD_DATA": "داده های ارسال شده مجاز نیست",
+    "INVALID_CAPTCHA": "کپتچا نامعتبر است",
+    "NO_CAPTCHA_TOKEN": "کپتچا را تایید کنید",
+    "USER_NOT_FOUND": "کاربر یافت نشد",
+    "OTP_SENT_BEFORE": "کد تایید قبلا ارسال شده است",
+    "OTP_SENT": "کد تایید ارسال شد",
+    "OTP_SEND_FAILED": "خطا در ارسال کد تایید رخ داد",
+    "AUTHED": "با موفقیت وارد شدید",
+    "INVALID_OTP": "کد تایید اشتباه است",
+    "USER_ALREADY_EXISTS": "این کاربر وجود دارد",
+    "USER_CREATED": "کاربر با موفقیت تعریف شد",
+    "USER_UPDATED": "کاربر با موفقیت تعریف شد",
+    "TICKET_CREATED": "تیکت با موفقیت ایجاد شد",
+    "TICKET_STATUS_UPDATED": "وضعیت تیکت با موفقیت به روز شد",
+    "CONSULTATION_CREATED": "درخواست مشاوره با موفقیت ثبت شد"
+}

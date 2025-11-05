@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "serve:ssr:cathub": "node dist/cathub/server/server.mjs"
+    "serve:ssr:cathub": "node dist/cathub/server/server.mjs",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev --name migrate",
+    "postinstall": "prisma generate"
   },
   "prettier": {
     "printWidth": 100,
@@ -31,9 +34,17 @@
     "@angular/platform-server": "^20.3.0",
     "@angular/router": "^20.3.0",
     "@angular/ssr": "^20.3.2",
+    "@prisma/client": "^6.18.0",
     "@tailwindcss/postcss": "^4.1.14",
+    "axios": "^1.13.1",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "fastest-validator": "^1.19.1",
+    "jalali-moment": "^3.3.11",
+    "jsonwebtoken": "^9.0.2",
     "material-icons": "^1.13.14",
+    "memory-cache-map": "^1.1.1",
+    "multer": "^2.0.2",
     "postcss": "^8.5.6",
     "rxjs": "~7.8.0",
     "swiper": "^12.0.2",
@@ -44,9 +55,14 @@
     "@angular/build": "^20.3.2",
     "@angular/cli": "^20.3.2",
     "@angular/compiler-cli": "^20.3.0",
+    "@inquirer/prompts": "^7.9.0",
     "@types/express": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.0.0",
     "@types/node": "^20.17.19",
+    "commander": "^14.0.2",
     "daisyui": "^5.3.6",
+    "prisma": "^6.18.0",
     "typescript": "~5.9.2"
   }
 }

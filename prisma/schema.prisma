@@ -1,0 +1,112 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../prisma/generated"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id Int @id @default(autoincrement())
+
+  name        String
+  type        String // admin, company, user
+  badge       String?
+  avatar      String?
+  phone       String  @unique
+  national_id String  @unique
+
+  email       String?
+  address     String?
+  province    String?
+  city        String?
+  postal_code String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ticket         ticket[]
+  ticket_message ticket_message[]
+  order          order[]
+  consultation   consultation[]
+}
+
+model ticket {
+  id Int @id @default(autoincrement())
+
+  title      String
+  priority   String // low, medium, high
+  department String // support, sales, technical
+  status     String // open, in_progress, closed
+
+  user_id Int
+  user    user @relation(fields: [user_id], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ticket_message ticket_message[]
+}
+
+model ticket_message {
+  id Int @id @default(autoincrement())
+
+  type    String // text, image, file
+  content String
+
+  ticket_id Int
+  ticket    ticket @relation(fields: [ticket_id], references: [id])
+
+  user_id Int
+  user    user @relation(fields: [user_id], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model order {
+  id Int @id @default(autoincrement())
+
+  user_id Int?
+  user    user? @relation(fields: [user_id], references: [id])
+
+  company                 Boolean @default(false)
+  firstname               String
+  lastname                String?
+  phone                   String
+  national_id             String
+  email                   String
+  address                 String
+  province                String
+  city                    String
+  postal_code             String?
+  company_name            String?
+  company_phone           String?
+  company_register_number String?
+  company_economic_code   String?
+  service_category        String
+  service_subcategory     String
+  service_description     String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model consultation {
+  id Int @id @default(autoincrement())
+
+  user_id Int?
+  user    user? @relation(fields: [user_id], references: [id])
+
+  name    String
+  phone   String
+  message String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

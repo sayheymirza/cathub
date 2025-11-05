@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { ChatHeader } from "./chat-header";
 import { ChatMessages } from "./chat-messages";
 import { ChatFooter } from "./chat-footer";
@@ -8,17 +8,18 @@ import { ChatFooter } from "./chat-footer";
   imports: [ChatHeader, ChatMessages, ChatFooter],
   template: `
     <app-chat-header>
-      <ng-container backable>
-        <ng-content select="[backable]"></ng-content>
+      <ng-container chat-header>
+        <ng-content select="[chat-header]"></ng-content>
       </ng-container>
     </app-chat-header>
-    <app-chat-messages class="grow pb-16" />
-    <app-chat-footer class="absolute bottom-4 left-4 right-4"/>
+    <app-chat-messages [messages]="messages()" class="grow pb-20" />
+    <app-chat-footer (submit)="submit.emit($event)" class="absolute bottom-4 left-4 right-4"/>
   `,
   host: {
     class: 'flex flex-col overflow-hidden relative'
   }
 })
 export class Chat {
-
+  public submit = output<any>();
+  public messages = input.required<any[]>();
 }

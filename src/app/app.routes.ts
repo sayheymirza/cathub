@@ -55,7 +55,19 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
-                loadComponent: () => import('./routes/panel/tickets').then(m => m.Tickets)
+                loadComponent: () => import('./routes/panel/ticket/tickets').then(m => m.Tickets)
+            },
+            {
+                path: 'users',
+                loadComponent: () => import('./routes/panel/admin/users').then(m => m.Users)
+            },
+            {
+                path: 'consultations',
+                loadComponent: () => import('./routes/panel/admin/consultation').then(m => m.Consultation)
+            },
+            {
+                path: 'orders',
+                loadComponent: () => import('./routes/panel/admin/order').then(m => m.Order)
             }
         ],
     }
