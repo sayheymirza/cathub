@@ -1,17 +1,44 @@
-# Stage 1: Build Angular Application
+# Stage 1: Build Angular Application + Prisma Client
 FROM node:22-alpine AS build
+
+RUN apk add --no-cache openssl bind-tools
+
 WORKDIR /app
 COPY package*.json ./
+
 RUN npm install --force
+
 COPY . .
+
+# generate prisma client with schema available
+RUN npx prisma generate
+
+# build Angular SSR bundle
 RUN npm run build
 
-# Stage 2: Serve the Angular App with Node.js
+
+# Stage 2: Runtime (Node SSR)
 FROM node:22-alpine
+
+RUN apk add --no-cache openssl
+
 WORKDIR /app
-COPY --from=build /app/dist ./dist
+
 COPY package*.json ./
 RUN npm install --production --force
+
+# copy dist (SSR build)
+COPY --from=build /app/dist ./dist
+
+# copy prisma directory so schema exists in runtime
+COPY --from=build /app/prisma ./prisma
+
+# copy prisma engines + client
+COPY --from=build /app/node_modules/.prisma /app/node_modules/.prisma
+COPY --from=build /app/node_modules/@prisma /app/node_modules/@prisma
+
+# ensure prisma client initialized (no schema needed now, already present)
+RUN npx prisma generate
 
 EXPOSE 4000
 CMD ["npm", "run", "serve:ssr:cathub"]

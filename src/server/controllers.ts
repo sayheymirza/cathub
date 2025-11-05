@@ -395,9 +395,9 @@ const allTickets = async (req: Request, res: Response) => {
             meta: {
                 total: tickets.length,
             },
-            tickets: tickets.map((item) => ({
+            tickets: tickets.map((item: any) => ({
                 ...item,
-                ticket_message: item.ticket_message.map((msg) => ({
+                ticket_message: item.ticket_message.map((msg: any) => ({
                     ...msg,
                     content: JSON.parse(msg.content),
                 })),
@@ -495,7 +495,7 @@ const getTicketById = async (req: Request, res: Response) => {
             status: 200,
             code: 'TICKET_FETCHED',
             ticket,
-            messages: messages.map((item) => ({
+            messages: messages.map((item: any) => ({
                 ...item,
                 content: JSON.parse(item.content),
             })),
