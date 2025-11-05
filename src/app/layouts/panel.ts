@@ -45,7 +45,7 @@ import { User } from '../services/user';
           }
         </div>
 
-        <a routerLink="/consultation" class="btn btn-outline rounded-full hidden md:flex">
+        <a routerLink="/consultation" class="btn btn-outline rounded-full hidden md:flex hover:text-primary">
           درخواست مشاوره
         </a>
         

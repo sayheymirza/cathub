@@ -15,5 +15,6 @@
     "USER_UPDATED": "کاربر با موفقیت تعریف شد",
     "TICKET_CREATED": "تیکت با موفقیت ایجاد شد",
     "TICKET_STATUS_UPDATED": "وضعیت تیکت با موفقیت به روز شد",
-    "CONSULTATION_CREATED": "درخواست مشاوره با موفقیت ثبت شد"
+    "CONSULTATION_CREATED": "درخواست مشاوره با موفقیت ثبت شد",
+    "ORDER_CREATED": "سفارش با موفقیت ثبت شد"
 }

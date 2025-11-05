@@ -1,4 +1,5 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, viewChild } from '@angular/core';
+import { ArcaptchaAngularComponent, ArcaptchaAngularModule } from 'arcaptcha-angular';
 import { FormOrder } from '../../components/form-order';
 import { Http } from '../../services/http';
 import { Toast } from '../../services/toast';
@@ -6,7 +7,7 @@ import { User } from '../../services/user';
 
 @Component({
   selector: 'app-order',
-  imports: [FormOrder],
+  imports: [FormOrder, ArcaptchaAngularModule],
   template: `
     <h1 class="font-bold text-2xl">فرم درخواست ثبت سفارش</h1>
     <p class="text-base-content/70">کاربر گرامی, از طریق فرم زیر می‌توانید نسبت به ثبت درخواست سرویس اقدام نمایید.</p>
@@ -17,6 +18,8 @@ import { User } from '../../services/user';
       [disabled]="disabled()" 
       [value]="value()" 
     />
+
+    <lib-arcaptcha-angular #arcaptcha site_key="2o8d1er3eg" api_url="/arcaptcha.js" [invisible]="true" /> 
   `,
   host: {
     class: 'flex flex-col gap-2 container mx-auto p-6 md:p-10'
@@ -30,8 +33,18 @@ export class Order {
   public disabled = signal(false);
   public value = signal({});
 
-  ngOnInit() {
+  private arcaptcha = viewChild<ArcaptchaAngularComponent>('arcaptcha');
+  private captchaToken: string | null = null;
+
+  private timeout: any;
+
+  async ngOnInit() {
     this.setFormFromProfile();
+
+    if (!this.captchaToken) {
+      const token = await this.arcaptcha()!.execute();
+      this.captchaToken = token.arcaptcha_token;
+    }
   }
 
   private setFormFromProfile() {
@@ -59,28 +72,51 @@ export class Order {
   }
 
 
-  public async submit(value: any) {
-    try {
-      this.disabled.set(true);
-
-      const result = await this.http.request({
-        method: 'POST',
-        path: '/api/v1/order',
-        auth: true,
-        data: this.value,
-      });
-
-      this.toast.make(result.body.code, result.body.ok ? 'success' : 'error');
-
-      if (result.body.ok) {
-        this.value.set({});
-      }
-
-
-    } catch (error) {
-      //
-    } finally {
-      this.disabled.set(false);
+  public submit(value: any = null) {
+    if (value && !(value instanceof SubmitEvent)) {
+      this.value.set(value);
     }
+
+    clearTimeout(this.timeout);
+
+    this.timeout = setTimeout(async () => {
+      try {
+        this.disabled.set(true);
+
+        if (!this.captchaToken) {
+          const token = await this.arcaptcha()!.execute();
+          this.captchaToken = token.arcaptcha_token;
+        }
+
+        const result = await this.http.request({
+          method: 'POST',
+          path: '/api/v1/order',
+          auth: true,
+          data: this.value(),
+          header: {
+            'x-captcha': this.captchaToken
+          }
+        });
+
+        this.toast.make(result.body.code, result.body.ok ? 'success' : 'error');
+
+        if (result.body.ok) {
+          this.value.set({});
+        }
+
+        if (result.body.code == 'INVALID_CAPTCHA') {
+          // reset captcha token
+          this.captchaToken = null;
+          this.arcaptcha()!.resetCaptcha();
+          this.submit();
+        }
+
+
+      } catch (error) {
+        //
+      } finally {
+        this.disabled.set(false);
+      }
+    });
   }
 }

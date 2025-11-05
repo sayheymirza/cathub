@@ -1,12 +1,13 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, viewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Http } from '../../services/http';
 import { Toast } from '../../services/toast';
 import { HomeSolutions } from '../home/home-solutions';
+import { ArcaptchaAngularComponent, ArcaptchaAngularModule } from 'arcaptcha-angular';
 
 @Component({
   selector: 'app-consultation',
-  imports: [HomeSolutions, ReactiveFormsModule],
+  imports: [HomeSolutions, ReactiveFormsModule, ArcaptchaAngularModule],
   template: `
     <section class="w-full h-96 gap-2 bg-tiles relative">
       <div class="absolute inset-0 bg-radial-[at_50%_75%] from-transparent from-40% to-base-100 z-0"></div>
@@ -36,7 +37,7 @@ import { HomeSolutions } from '../home/home-solutions';
 
       <fieldset class="fieldset col-span-2">
         <legend class="fieldset-legend">
-          پیام
+          پیام <sup class="text-error">ضروری</sup>
         </legend>
         <textarea formControlName="message" rows="4" class="textarea focus:textarea-primary w-full" placeholder="توضیحات کاملی از نیاز خود ارائه دهید..."></textarea>
       </fieldset>
@@ -47,6 +48,8 @@ import { HomeSolutions } from '../home/home-solutions';
     </form>
 
     <app-home-solutions />
+
+    <lib-arcaptcha-angular #arcaptcha site_key="2o8d1er3eg" api_url="/arcaptcha.js" [invisible]="true" /> 
   `,
   host: {
     class: 'flex flex-col container mx-auto'
@@ -67,6 +70,18 @@ export class Consultation {
     message: new FormControl('', [Validators.required, Validators.minLength(10)]),
   });
 
+  private arcaptcha = viewChild<ArcaptchaAngularComponent>('arcaptcha');
+  private captchaToken: string | null = null;
+
+  private timeout: any;
+
+  async ngOnInit() {
+    if (!this.captchaToken) {
+      const token = await this.arcaptcha()!.execute();
+      this.captchaToken = token.arcaptcha_token;
+    }
+  }
+
   public async submit() {
     this.form.markAllAsTouched();
 
@@ -74,17 +89,32 @@ export class Consultation {
       try {
         this.form.disable();
 
+        if (!this.captchaToken) {
+          const token = await this.arcaptcha()!.execute();
+          this.captchaToken = token.arcaptcha_token;
+        }
+
         const result = await this.http.request({
           method: 'POST',
           path: '/api/v1/consultation',
           auth: true,
-          data: this.form.value
+          data: this.form.value,
+          header: {
+            'x-captcha': this.captchaToken
+          }
         });
 
         this.toast.make(result.body.code, result.body.ok ? 'success' : 'error');
 
         if (result.body.ok) {
           this.form.reset();
+        }
+
+        if (result.body.code == 'INVALID_CAPTCHA') {
+          // reset captcha token
+          this.captchaToken = null;
+          this.arcaptcha()!.resetCaptcha();
+          this.submit();
         }
 
       } catch (error) {

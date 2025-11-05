@@ -255,6 +255,8 @@ export class FormOrder {
     this.form.markAllAsTouched();
 
     if (this.form.valid) {
+      console.log(this.form.value);
+      
       this.submit.emit(this.form.value);
     }
   }

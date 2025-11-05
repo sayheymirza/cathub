@@ -130,7 +130,7 @@ import { User } from '../../services/user';
         </div>
       </section>
 
-      <lib-arcaptcha-angular #arcaptcha site_key="2o8d1er3eg" api_url="/arcaptcha.js" [invisible]="true" (callback)="submit()" /> 
+      <lib-arcaptcha-angular #arcaptcha site_key="2o8d1er3eg" api_url="/arcaptcha.js" [invisible]="true" /> 
   `,
   host: {
     class: 'flex flex-col items-center justify-center w-screen h-dvh overflow-hidden'
@@ -165,6 +165,7 @@ export class Login {
   private arcaptcha = viewChild<ArcaptchaAngularComponent>('arcaptcha');
 
   private timerInterval: any = null;
+  private captchaToken: string | null = null;
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -255,8 +256,10 @@ export class Login {
 
       this.disabled.set(true)
 
-      const token = await this.arcaptcha()!.execute();
-
+      if (!this.captchaToken) {
+        const token = await this.arcaptcha()!.execute();
+        this.captchaToken = token.arcaptcha_token;
+      }
 
       const result = await this.http.request({
         method: 'POST',
@@ -265,7 +268,7 @@ export class Login {
           phone: this.phone(),
         },
         header: {
-          'x-captcha': token.arcaptcha_token
+          'x-captcha': this.captchaToken
         }
       });
 
@@ -280,6 +283,13 @@ export class Login {
         }
 
         window.localStorage.setItem('#cathub/auth', JSON.stringify(result.body));
+      }
+
+      if (result.body.code == 'INVALID_CAPTCHA') {
+        // reset captcha token
+        this.captchaToken = null;
+        this.arcaptcha()!.resetCaptcha();
+        this.request();
       }
 
     } catch (error) {
@@ -300,7 +310,10 @@ export class Login {
 
       this.disabled.set(true);
 
-      const token = await this.arcaptcha()!.execute();
+      if (!this.captchaToken) {
+        const token = await this.arcaptcha()!.execute();
+        this.captchaToken = token.arcaptcha_token;
+      }
 
       const result = await this.http.request({
         method: 'POST',
@@ -310,7 +323,7 @@ export class Login {
           code: this.code(),
         },
         header: {
-          'x-captcha': token,
+          'x-captcha': this.captchaToken,
         }
       });
 
@@ -324,6 +337,13 @@ export class Login {
 
       if (!result.body.ok && result.body.code == 'INVALID_OTP') {
         this.error.set('کد تایید وارد شده اشتباه است');
+      }
+
+      if (result.body.code == 'INVALID_CAPTCHA') {
+        // reset captcha token
+        this.captchaToken = null;
+        this.arcaptcha()!.resetCaptcha();
+        this.verify();
       }
 
     } catch (error) {
