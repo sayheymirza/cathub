@@ -11,7 +11,7 @@ import { DatePipe } from '../../../pipes/date';
     </h1>
 
     @for (item of consultations(); track $index) {
-      <div class="flex flex-col gap-2 p-4 rounded-xl bg-base-100 shadow border border-base-200 md:border-0">
+      <div class="flex flex-col gap-2 p-4 rounded-xl bg-base-100 md:shadow border border-base-300 md:border-0">
         <div class="flex flex-nowrap items-center justify-between">
           <span class="text-base-content/70 text-sm">نام</span>
           <strong>{{item.name}}</strong>

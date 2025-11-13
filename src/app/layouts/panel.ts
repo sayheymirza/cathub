@@ -7,6 +7,39 @@ import { User } from '../services/user';
   selector: 'app-panel',
   imports: [RouterOutlet, RouterLink, NgOptimizedImage, NgClass],
   template: `
+    <div class="drawer z-60">
+      <input #drawer id="drawer" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-side">
+        <label for="drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+        <ul class="menu bg-base-100 min-h-full w-80 p-4">
+          <a routerLink="/" class="flex flex-col items-center gap-2 mx-auto mb-4">
+            <img ngSrc="/images/logo.png" alt="Cathub Logo" width="56" height="56" class="w-[32px] h-[32px] transition-all" />
+            <strong class="text-base">کت هاب</strong>
+          </a>
+
+          <li><a routerLink="/panel">
+            <i class="material-icons-round">home</i>
+            <span>پیشخان</span>
+          </a></li>
+          @if(user.profile()?.type == 'admin') {
+            <li><a routerLink="/panel/users">
+              <i class="material-icons-round">people</i>
+              کاربر ها
+            </a></li>
+            
+            <li><a routerLink="/panel/orders">
+              <i class="material-icons-round">shopping_cart</i>
+              سفارش ها
+            </a></li>
+            <li><a routerLink="/panel/consultations">
+              <i class="material-icons-round">support_agent</i>
+              درخواست های مشاوره
+            </a></li>
+          }
+        </ul>
+      </div>
+    </div>
+
     <nav 
       [ngClass]="{
         'md:text-white border-transparent': !sticky(),
@@ -15,7 +48,7 @@ import { User } from '../services/user';
       class="backdrop-blur transition-all h-16 fixed top-0 left-0 w-full z-50 border-b">
       <div class="flex flex-nowrap items-center h-full px-4 container mx-auto">
         <div class="md:hidden">
-          <button class="btn btn-square btn-ghost">
+          <button (click)="drawer.checked = !drawer.checked" class="btn btn-square btn-ghost">
             <i class="material-icons-round">menu</i>
           </button>
         </div>

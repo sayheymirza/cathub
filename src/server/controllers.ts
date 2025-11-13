@@ -514,8 +514,17 @@ const getTicketById = async (req: Request, res: Response) => {
 const changeTicketStatus = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
+        const { type: userType, id: userId } = (req as any).user;
 
         const { status } = req.body;
+
+        if (userType != 'admin' && status != 'closed') {
+            return res.status(403).json({
+                ok: false,
+                status: 403,
+                code: 'FIRBIDDEN'
+            });
+        }
 
         const ticket = await database.getTicketById(parseInt(id));
 
@@ -527,7 +536,7 @@ const changeTicketStatus = async (req: Request, res: Response) => {
             });
         }
 
-        if (ticket.user_id != (req as any).user.id && (req as any).user.type != 'admin') {
+        if (ticket.user_id != userId && userType != 'admin') {
             return res.status(403).json({
                 ok: false,
                 status: 403,

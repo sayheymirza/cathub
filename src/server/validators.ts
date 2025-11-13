@@ -50,7 +50,7 @@ const ticket_message = v.compile({
 });
 
 const ticket_status = v.compile({
-    status: { type: "enum", values: ["open", "closed", "waiting-for-response", "resolved"], optional: false },
+    status: { type: "enum", values: ["open", "closed", "waiting-for-response", "resolved", "deleted"], optional: false },
 });
 
 const user = v.compile({

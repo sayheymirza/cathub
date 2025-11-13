@@ -43,8 +43,11 @@ import { User } from '../../../services/user';
 
       @if (user.admin()) {
         <fieldset class="fieldset col-span-2">
-          <legend class="fieldset-legend">کاربر</legend>
-          <select formControlName="user_id" class="select mirza-select w-full focus:select-primary focus-within:select-primary">
+          <legend class="fieldset-legend">
+            کاربر
+            <sup class="text-error">اجباری</sup>
+          </legend>
+          <select formControlName="user_id" class="select mirza-select-[53%] w-full focus:select-primary focus-within:select-primary">
             <option value="">انتخاب کاربر</option>
             @for (user of users(); track user.id) {
               <option [value]="user.id">{{ user.name }}</option>
@@ -79,12 +82,14 @@ export class Ticket {
     title: new FormControl('', [Validators.required, Validators.min(3)]),
     department: new FormControl('', [Validators.required]),
     priority: new FormControl('medium'),
-    user_id: new FormControl(undefined, [])
+    user_id: new FormControl<string | undefined>(undefined, [])
   });
 
   ngOnInit() {
     if (this.user.admin()) {
       this.fetchAllUsers();
+      this.form.get('user_id')!.setValue("");
+      this.form.get('user_id')!.setValidators([Validators.required]);
     }
   }
 

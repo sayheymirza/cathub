@@ -12,7 +12,7 @@ import { FormOrder } from "../../../components/form-order";
     </h1>
 
     @for (item of orders(); track $index) {
-      <details class="collapse collapse-arrow bg-base-100 border-base-300 border shadow open:shadow-lg">
+      <details class="collapse collapse-arrow bg-base-100 md:shadow md:open:shadow-lg border border-base-300 md:border-0">
         <summary class="collapse-title flex flex-nowrap items-center gap-4">
           <strong>سفارش {{item.id}}</strong>  <span class="badge badge-soft">{{item.createdAt | date}}</span>
         </summary>

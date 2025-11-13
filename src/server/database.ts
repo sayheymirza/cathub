@@ -106,7 +106,12 @@ const getTicketMessagesByTicketId = (ticketId: number, page: number = 0, limit: 
 
 const getTicketsByUserId = (userId: number) => {
     return prisma.ticket.findMany({
-        where: { user_id: userId },
+        where: {
+            user_id: userId,
+            status: {
+                not: 'deleted'
+            }
+        },
         include: {
             ticket_message: {
                 orderBy: { createdAt: 'desc' },
@@ -119,6 +124,11 @@ const getTicketsByUserId = (userId: number) => {
 
 const getAllTickets = (page: number = 0, limit: number = 20) => {
     return prisma.ticket.findMany({
+        where: {
+            status: {
+                not: 'deleted'
+            }
+        },
         skip: page * limit,
         take: limit,
         include: {

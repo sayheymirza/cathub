@@ -14,7 +14,9 @@ import { Ticket } from './ticket';
   selector: 'app-tickets',
   imports: [NgClass, Chat, DatePipe, FormsModule],
   template: `
-    <div class="flex-col relative md:col-span-2 lg:col-span-1 overflow-y-clip border-l border-base-content/20" [ngClass]="{'grow': !backable(), 'hidden md:flex': backable()}">
+    <div class="flex-col relative md:col-span-2 lg:col-span-1 overflow-y-clip border-l border-base-content/20" 
+      [ngClass]="{'grow': !backable(), 'hidden md:flex': backable(), '!hidden': tickets().length == 0}"
+      >
       <div class="flex flex-nowrap items-center h-16 px-2 bg-base-200 border-b border-base-content/20 sticky top-0 z-10">
         <strong class="p-2">تیکت و پشتیبانی</strong>
 
@@ -144,7 +146,14 @@ import { Ticket } from './ticket';
       </div>
     </div>
 
-    <div class="flex-col md:col-span-3 lg:col-span-4 grow transition-all max-h-[calc(100dvh-4rem)] sm:max-h-[calc(100dvh-6rem)] md:max-h-[80dvh]" [ngClass]="{'hidden md:flex': !backable(), 'flex': backable()}">
+    <div 
+      class="flex-col grow transition-all max-h-[calc(100dvh-4rem)] sm:max-h-[calc(100dvh-6rem)] md:max-h-[80dvh]" 
+      [ngClass]="{
+        'hidden md:flex': !backable(), 'flex': backable(),
+        'md:col-span-3 lg:col-span-4': tickets().length != 0,
+        'md:col-span-5 !flex': tickets().length == 0
+      }"
+    >
       @if(ticket()) {
       <app-chat 
         class="border-t md:border-0 border-base-content/20 grow h-full"
@@ -177,6 +186,11 @@ import { Ticket } from './ticket';
                 <option class="text-warning" value="waiting-for-response">در انتظار پاسخ</option>
                 <option class="text-info" value="resolved">پاسخ داده شد</option>
                </select>
+
+               <li (click)="changeTicketStatus('deleted')" class="text-error mt-2"><a>
+                  <i class="material-icons-round">delete</i>
+                  <span>حذف تیکت</span>
+                </a></li>
               } @else if (ticket().status !== 'closed') {
                 <li (click)="changeTicketStatus('closed')" class="text-error"><a>
                   <i class="material-icons-round">close</i>
@@ -187,6 +201,17 @@ import { Ticket } from './ticket';
           </div>
         </ng-container>
       </app-chat>
+      } @else {
+        <div class="flex flex-col items-center justify-center gap-4 w-full h-full grow"> 
+          <i class="material-icons-round scale-300 mb-8">chat</i>
+
+          <strong class="text-xl">یک تیکت انتخاب کنید</strong>
+
+          <button (click)="openTicketDialog()" class="btn btn-outline border-base-300 text-primary mt-4">
+            <i class="material-icons-round">add</i>
+            <span>تیکت جدید</span>
+          </button>
+        </div>
       }
     </div>
   `,
@@ -254,6 +279,12 @@ export class Tickets {
           }
           return item;
         }));
+
+        if (status == 'deleted') {
+          // unselect ticket
+          this.ticket.set(null);
+          this.fetchTickets();
+        }
       }
     } catch (error) {
       //

@@ -60,10 +60,19 @@
         @apply flex flex-col bg-base-100 border border-base-content/12 md:rounded-2xl shadow-lg min-w-[300px] md:max-w-xl w-full md:w-xl h-dvh md:h-fit md:max-h-[80dvh] p-4 overflow-hidden;
     }
 
-    select.mirza-select ::picker(select),
-    ::picker(select.mirza-select) {
-        right: anchor(110%);
-        left: 0px;
+    @media (width >=48rem) {
+
+        [dir=rtl] .mirza-select::picker(select),
+        [dir=rtl] .mirza-select select::picker(select) {
+            right: anchor(109%);
+            left: 0px;
+        }
+
+        [dir=rtl] .mirza-select-\[53\%\]::picker(select),
+        [dir=rtl] .mirza-select-\[53\%\] select::picker(select) {
+            right: anchor(53%);
+            left: 0px;
+        }
     }
 
     input.ng-invalid.ng-touched {

@@ -42,7 +42,7 @@ import { Toast } from '../../../services/toast';
           هویت
           <sup class="text-error">اجباری</sup>
         </legend>
-        <select formControlName="type" class="select w-full focus:select-primary focus-within:select-primary">
+        <select formControlName="type" class="select mirza-select w-full focus:select-primary focus-within:select-primary">
           <option value="admin">مدیر</option>
           <option value="user">حقیقی</option>
           <option value="company">حقوقی</option>
