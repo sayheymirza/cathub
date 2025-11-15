@@ -6,30 +6,20 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <div class="sm:rounded-2xl flex items-center justify-center md:aspect-square p-4 bg-gradient-to-t from-base-300 to-base-200 relative">
-        <swiper-container autoplay-delay="2500" slides-per-view="auto" space-between="10" mousewheel-force-to-axis="true" loop="true" class="w-[240px] h-[560px] z-0 relative">
-          <swiper-slide class="flex items-center justify-center">
-            <div class="w-full h-full rounded-[40px] bg-white overflow-hidden px-4 py-10">
-              Slide 1
-            </div>
+        <swiper-container autoplay-delay="2500" slides-per-view="auto" space-between="10" mousewheel-force-to-axis="true" loop="true" class="z-0 relative aspect-square">
+          <swiper-slide class="p-10">
+            <img src="/images/demo/demo-1.png" alt="Demo 1" class="object-center object-contain w-full h-full" />
           </swiper-slide>
-          <swiper-slide class="flex items-center justify-center">
-            <div class="w-full h-full rounded-[40px] bg-white overflow-hidden px-4 py-10">
-              Slide 2
-            </div>
+          <swiper-slide class="p-10">
+            <img src="/images/demo/demo-2.png" alt="Demo 2" class="object-center object-contain w-full h-full" />
           </swiper-slide>
-          <swiper-slide class="flex items-center justify-center">
-            <div class="w-full h-full rounded-[40px] bg-white overflow-hidden px-4 py-10">
-              Slide 3
-            </div>
+          <swiper-slide class="p-10">
+            <img src="/images/demo/demo-3.png" alt="Demo 3" class="object-center object-contain w-full h-full" />
           </swiper-slide>
-          <swiper-slide class="flex items-center justify-center">
-            <div class="w-full h-full rounded-[40px] bg-white overflow-hidden px-4 py-10">
-              Slide 4
-            </div>
+          <swiper-slide class="p-10">
+            <img src="/images/demo/demo-4.png" alt="Demo 4" class="object-center object-contain w-full h-full" />
           </swiper-slide>
         </swiper-container>
-
-        <img src="/images/iphone.png" alt="IPhone Mockup" class="w-[280px] h-[560px] object-contain absolute z-1" />
     </div>
 
     <div class="flex flex-col gap-4 p-4">
