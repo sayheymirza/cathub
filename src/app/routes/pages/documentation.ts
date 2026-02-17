@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Seo } from '../../services/seo';
 
@@ -134,7 +134,7 @@ import { Seo } from '../../services/seo';
     class: 'container mx-auto flex flex-col gap-4 px-4 py-10'
   }
 })
-export class Documentation {
+export class Documentation implements OnInit {
   private seo = inject(Seo);
 
   ngOnInit() {

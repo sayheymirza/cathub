@@ -116,7 +116,7 @@ import { RouterLink } from '@angular/router';
               <span>راهنما و قابلیت‌ها</span>
             </a>
 
-            <a routerLink="" class="btn btn-ghost m-1">
+            <a routerLink="/blog" class="btn btn-ghost m-1">
               <span>وبلاگ</span>
             </a>
           </div>
