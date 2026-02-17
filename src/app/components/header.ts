@@ -34,6 +34,7 @@ import { RouterLink } from '@angular/router';
                 <li><a routerLink="/order">فرم ثبت سفارش سرویس</a></li>
               </ul>
             </li>
+            <li><a routerLink="/documentation">راهنما و قابلیت‌ها</a></li>
             <li><a routerLink="/blog">وبلاگ</a></li>
           </ul>
           
@@ -111,7 +112,11 @@ import { RouterLink } from '@angular/router';
               </ul>
             </div>
 
-            <a routerLink="" class="btn btn-ghost m-1">
+            <a routerLink="/documentation" class="btn btn-ghost m-1">
+              <span>راهنما و قابلیت‌ها</span>
+            </a>
+
+            <a routerLink="/blog" class="btn btn-ghost m-1">
               <span>وبلاگ</span>
             </a>
           </div>
